@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace Индивидуальное_задание_2.База_данных
 {
-    public partial class Tab1 : Form
+    public partial class Customers : Form
     {
-        public Tab1()
+        public Customers()
         {
             InitializeComponent();
             table.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -50,6 +50,7 @@ namespace Индивидуальное_задание_2.База_данных
 
         private void addClient_Click(object sender, EventArgs e)
         {
+            
         }
     }
 }

@@ -28,35 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tab1 = new System.Windows.Forms.Button();
+            this.passports = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // tab1
+            // passports
             // 
-            this.tab1.Location = new System.Drawing.Point(280, 99);
-            this.tab1.Name = "tab1";
-            this.tab1.Size = new System.Drawing.Size(181, 23);
-            this.tab1.TabIndex = 0;
-            this.tab1.Text = "Таблица \"Клиенты\"";
-            this.tab1.UseVisualStyleBackColor = true;
-            this.tab1.Click += new System.EventHandler(this.button1_Click);
+            this.passports.Location = new System.Drawing.Point(233, 74);
+            this.passports.Name = "passports";
+            this.passports.Size = new System.Drawing.Size(241, 23);
+            this.passports.TabIndex = 0;
+            this.passports.Text = "Таблица \"Паспорта\"";
+            this.passports.UseVisualStyleBackColor = true;
+            this.passports.Click += new System.EventHandler(this.passports_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tab1);
+            this.Controls.Add(this.passports);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button tab1;
+        private System.Windows.Forms.Button passports;
     }
 }
 

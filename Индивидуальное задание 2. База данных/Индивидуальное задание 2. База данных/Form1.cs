@@ -18,14 +18,9 @@ namespace Индивидуальное_задание_2.База_данных
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void passports_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Tab1 tab = new Tab1();
+            Passports tab = new Passports();
             tab.Show();
         }
     }
