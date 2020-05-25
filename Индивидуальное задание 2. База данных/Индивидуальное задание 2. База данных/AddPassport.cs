@@ -20,17 +20,21 @@ namespace Индивидуальное_задание_2.База_данных
 
         private void add_Click(object sender, EventArgs e)
         {
-            MySqlConnection connection = Program.Conn();
-            connection.Open();
+            if (series.Text != "" && number.Text != "" && issued.Text != "" && birthplace.Text != "" && code.Text != "" && date.Text != "")
+            {
+                MySqlConnection connection = Program.Conn();
+                connection.Open();
 
-            string comStr =
-            "INSERT INTO `insurance company`.`passport` (`series` ,`number` ,`issued` ,`birthplace` ,`code` ,`date`)" + 
-            "VALUES('" + series.Text + "', '" + number.Text + "', '" + issued.Text + "', '" + birthplace.Text + "', '" + code.Text + 
-            "', '" + date.Text + "')";
-            MySqlCommand com = new MySqlCommand(comStr, connection);
-            com.ExecuteNonQuery();
+                string comStr =
+                "INSERT INTO `insurance company`.`passport` (`series` ,`number` ,`issued` ,`birthplace` ,`code` ,`date`)" +
+                "VALUES('" + series.Text + "', '" + number.Text + "', '" + issued.Text + "', '" + birthplace.Text + "', '" + code.Text +
+                "', '" + date.Text + "')";
+                MySqlCommand com = new MySqlCommand(comStr, connection);
+                com.ExecuteNonQuery();
 
-            connection.Close();
+                connection.Close();
+            }
+            else MessageBox.Show("Необходимо заполнить все поля!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

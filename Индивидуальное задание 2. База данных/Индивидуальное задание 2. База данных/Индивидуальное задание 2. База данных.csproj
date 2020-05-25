@@ -61,6 +61,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Insurance_Events.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Insurance_Events.Designer.cs">
+      <DependentUpon>Insurance_Events.cs</DependentUpon>
+    </Compile>
     <Compile Include="Passports.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,11 +81,20 @@
     <Compile Include="Tab1.Designer.cs">
       <DependentUpon>Tab1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Types_Of_Insurance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Types_Of_Insurance.Designer.cs">
+      <DependentUpon>Types_Of_Insurance.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddPassport.resx">
       <DependentUpon>AddPassport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Insurance_Events.resx">
+      <DependentUpon>Insurance_Events.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Passports.resx">
       <DependentUpon>Passports.cs</DependentUpon>
@@ -95,6 +110,9 @@
     </Compile>
     <EmbeddedResource Include="Tab1.resx">
       <DependentUpon>Tab1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Types_Of_Insurance.resx">
+      <DependentUpon>Types_Of_Insurance.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

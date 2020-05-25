@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.passports = new System.Windows.Forms.Button();
+            this.types = new System.Windows.Forms.Button();
+            this.events = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // passports
@@ -41,11 +43,33 @@
             this.passports.UseVisualStyleBackColor = true;
             this.passports.Click += new System.EventHandler(this.passports_Click);
             // 
+            // types
+            // 
+            this.types.Location = new System.Drawing.Point(233, 134);
+            this.types.Name = "types";
+            this.types.Size = new System.Drawing.Size(241, 23);
+            this.types.TabIndex = 1;
+            this.types.Text = "Таблица \"Виды страхования\"";
+            this.types.UseVisualStyleBackColor = true;
+            this.types.Click += new System.EventHandler(this.types_Click);
+            // 
+            // events
+            // 
+            this.events.Location = new System.Drawing.Point(233, 191);
+            this.events.Name = "events";
+            this.events.Size = new System.Drawing.Size(241, 23);
+            this.events.TabIndex = 2;
+            this.events.Text = "Таблица \"Страховые события\"";
+            this.events.UseVisualStyleBackColor = true;
+            this.events.Click += new System.EventHandler(this.events_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.events);
+            this.Controls.Add(this.types);
             this.Controls.Add(this.passports);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -56,6 +80,8 @@
         #endregion
 
         private System.Windows.Forms.Button passports;
+        private System.Windows.Forms.Button types;
+        private System.Windows.Forms.Button events;
     }
 }
 
