@@ -100,42 +100,42 @@
             // 
             // number
             // 
-            this.number.Location = new System.Drawing.Point(114, 164);
+            this.number.Location = new System.Drawing.Point(124, 164);
             this.number.Name = "number";
             this.number.Size = new System.Drawing.Size(100, 20);
             this.number.TabIndex = 6;
             // 
             // flat
             // 
-            this.flat.Location = new System.Drawing.Point(114, 205);
+            this.flat.Location = new System.Drawing.Point(124, 205);
             this.flat.Name = "flat";
             this.flat.Size = new System.Drawing.Size(100, 20);
             this.flat.TabIndex = 7;
             // 
             // postcode
             // 
-            this.postcode.Location = new System.Drawing.Point(114, 250);
+            this.postcode.Location = new System.Drawing.Point(124, 250);
             this.postcode.Name = "postcode";
             this.postcode.Size = new System.Drawing.Size(100, 20);
             this.postcode.TabIndex = 8;
             // 
             // street
             // 
-            this.street.Location = new System.Drawing.Point(114, 118);
+            this.street.Location = new System.Drawing.Point(124, 118);
             this.street.Name = "street";
             this.street.Size = new System.Drawing.Size(100, 20);
             this.street.TabIndex = 9;
             // 
             // country
             // 
-            this.country.Location = new System.Drawing.Point(114, 35);
+            this.country.Location = new System.Drawing.Point(124, 38);
             this.country.Name = "country";
             this.country.Size = new System.Drawing.Size(100, 20);
             this.country.TabIndex = 10;
             // 
             // city
             // 
-            this.city.Location = new System.Drawing.Point(114, 75);
+            this.city.Location = new System.Drawing.Point(124, 75);
             this.city.Name = "city";
             this.city.Size = new System.Drawing.Size(100, 20);
             this.city.TabIndex = 11;
@@ -153,7 +153,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(220, 208);
+            this.label7.Location = new System.Drawing.Point(230, 208);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(121, 13);
             this.label7.TabIndex = 13;
@@ -163,7 +163,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 350);
+            this.ClientSize = new System.Drawing.Size(370, 350);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.add);
             this.Controls.Add(this.city);

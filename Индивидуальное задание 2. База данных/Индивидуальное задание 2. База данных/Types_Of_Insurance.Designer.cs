@@ -58,19 +58,21 @@
             // 
             this.id.HeaderText = "ID вида";
             this.id.Name = "id";
+            this.id.ReadOnly = true;
             this.id.Width = 60;
             // 
             // name
             // 
             this.name.HeaderText = "Наименование";
             this.name.Name = "name";
+            this.name.ReadOnly = true;
             this.name.Width = 200;
             // 
             // Types_Of_Insurance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(261, 97);
+            this.ClientSize = new System.Drawing.Size(261, 102);
             this.Controls.Add(this.table);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

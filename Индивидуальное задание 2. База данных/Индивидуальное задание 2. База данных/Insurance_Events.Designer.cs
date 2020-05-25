@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.table = new System.Windows.Forms.DataGridView();
-            this.id_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_event = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.add = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
@@ -45,6 +42,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.num1 = new System.Windows.Forms.RichTextBox();
             this.show = new System.Windows.Forms.Button();
+            this.id_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_event = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,33 +57,12 @@
             this.id_type,
             this.id_event,
             this.name});
-            this.table.Location = new System.Drawing.Point(28, 26);
+            this.table.Location = new System.Drawing.Point(23, 26);
             this.table.Name = "table";
             this.table.ReadOnly = true;
             this.table.RowHeadersVisible = false;
-            this.table.Size = new System.Drawing.Size(440, 350);
+            this.table.Size = new System.Drawing.Size(467, 412);
             this.table.TabIndex = 0;
-            // 
-            // id_type
-            // 
-            this.id_type.HeaderText = "ID типа страхования";
-            this.id_type.Name = "id_type";
-            this.id_type.ReadOnly = true;
-            this.id_type.Width = 75;
-            // 
-            // id_event
-            // 
-            this.id_event.HeaderText = "ID страхового события";
-            this.id_event.Name = "id_event";
-            this.id_event.ReadOnly = true;
-            this.id_event.Width = 65;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Наименование";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 300;
             // 
             // add
             // 
@@ -107,7 +86,7 @@
             // 
             // update
             // 
-            this.update.Location = new System.Drawing.Point(589, 334);
+            this.update.Location = new System.Drawing.Point(589, 343);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(75, 23);
             this.update.TabIndex = 3;
@@ -127,17 +106,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(527, 247);
-            this.label2.MaximumSize = new System.Drawing.Size(80, 0);
+            this.label2.Location = new System.Drawing.Point(515, 247);
+            this.label2.MaximumSize = new System.Drawing.Size(100, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 26);
+            this.label2.Size = new System.Drawing.Size(81, 26);
             this.label2.TabIndex = 5;
             this.label2.Text = "ID страхового события:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(569, 288);
+            this.label3.Location = new System.Drawing.Point(569, 283);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 6;
@@ -146,7 +125,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(547, 315);
+            this.label4.Location = new System.Drawing.Point(547, 310);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 7;
@@ -182,10 +161,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(479, 163);
-            this.label5.MaximumSize = new System.Drawing.Size(150, 0);
+            this.label5.Location = new System.Drawing.Point(515, 149);
+            this.label5.MaximumSize = new System.Drawing.Size(120, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 26);
+            this.label5.Size = new System.Drawing.Size(113, 26);
             this.label5.TabIndex = 11;
             this.label5.Text = "Введите ID страхового события:";
             // 
@@ -206,6 +185,27 @@
             this.show.Text = "Показать все записи";
             this.show.UseVisualStyleBackColor = true;
             this.show.Click += new System.EventHandler(this.show_Click);
+            // 
+            // id_type
+            // 
+            this.id_type.HeaderText = "ID типа страхования";
+            this.id_type.Name = "id_type";
+            this.id_type.ReadOnly = true;
+            this.id_type.Width = 80;
+            // 
+            // id_event
+            // 
+            this.id_event.HeaderText = "ID страхового события";
+            this.id_event.Name = "id_event";
+            this.id_event.ReadOnly = true;
+            this.id_event.Width = 75;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Наименование";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 310;
             // 
             // Insurance_Events
             // 
@@ -228,7 +228,6 @@
             this.Controls.Add(this.table);
             this.Name = "Insurance_Events";
             this.Text = "Insurance_Event";
-            this.Load += new System.EventHandler(this.Insurance_Events_Load);
             ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -248,11 +247,11 @@
         private System.Windows.Forms.ComboBox box;
         private System.Windows.Forms.RichTextBox value;
         private System.Windows.Forms.RichTextBox num2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_event;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox num1;
         private System.Windows.Forms.Button show;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_event;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
     }
 }

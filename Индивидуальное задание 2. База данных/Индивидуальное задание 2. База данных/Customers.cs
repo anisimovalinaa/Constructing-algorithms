@@ -11,15 +11,15 @@ using MySql.Data.MySqlClient;
 
 namespace Индивидуальное_задание_2.База_данных
 {
-    public partial class Passports : Form
+    public partial class Customers : Form
     {
-        public Passports()
+        public Customers()
         {
             InitializeComponent();
             table.Font = new Font("Times New Roman", 10, table.Font.Style);
             table.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            show.Font = new Font("Times New Roman", 10, show.Font.Style);
-            add.Font = new Font("Times New Roman", 10, add.Font.Style);
+            showClients.Font = new Font("Times New Roman", 10, showClients.Font.Style);
+            addClient.Font = new Font("Times New Roman", 10, addClient.Font.Style);
             delete.Font = new Font("Times New Roman", 10, delete.Font.Style);
             update.Font = new Font("Times New Roman", 10, update.Font.Style);
             label1.Font = new Font("Times New Roman", 10, label1.Font.Style);
@@ -35,62 +35,66 @@ namespace Индивидуальное_задание_2.База_данных
             MySqlConnection connection = Program.Conn();
             connection.Open();
 
-            string comStr = "SELECT * FROM passport";
+            string comStr = "SELECT * FROM customers";
             MySqlCommand com = new MySqlCommand(comStr, connection);
             MySqlDataReader reader = com.ExecuteReader();
 
             while (reader.Read())
             {
                 table.Rows.Add();
-                table["id_passport", table.Rows.Count - 1].Value = reader[0].ToString();
-                table["series", table.Rows.Count - 1].Value = reader[1].ToString();
-                table["number", table.Rows.Count - 1].Value = reader[2].ToString();
-                table["issued", table.Rows.Count - 1].Value = reader[3].ToString();
-                table["birthplace", table.Rows.Count - 1].Value = reader[4].ToString();
-                table["code", table.Rows.Count - 1].Value = reader[5].ToString();
-                table["date", table.Rows.Count - 1].Value = reader[6].ToString();
+                table["surname", table.Rows.Count - 1].Value = reader[0].ToString();
+                table["name", table.Rows.Count - 1].Value = reader[1].ToString();
+                table["middle_name", table.Rows.Count - 1].Value = reader[2].ToString();
+                table["sex", table.Rows.Count - 1].Value = reader[3].ToString();
+                table["dateOfBirth", table.Rows.Count - 1].Value = reader[4].ToString();
+                table["pasport", table.Rows.Count - 1].Value = reader[5].ToString();
+                table["jobPlace", table.Rows.Count - 1].Value = reader[6].ToString();
+                table["address", table.Rows.Count - 1].Value = reader[7].ToString();
+                table["phoneNumber", table.Rows.Count - 1].Value = reader[8].ToString();
             }
             reader.Close();
             connection.Close();
         }
 
-        private void show_Click(object sender, EventArgs e)
+        private void addClient_Click(object sender, EventArgs e)
+        {
+            AddCustomer form = new AddCustomer();
+            form.Show();
+        }
+
+        private void showClients_Click(object sender, EventArgs e)
         {
             MySqlConnection connection = Program.Conn();
             connection.Open();
 
-            string comStr = "SELECT * FROM passport";
+            string comStr = "SELECT * FROM customers";
             MySqlCommand com = new MySqlCommand(comStr, connection);
             MySqlDataReader reader = com.ExecuteReader();
 
             while (reader.Read())
-            { 
+            {
                 bool check = new bool();
                 for (int i = 0; i < table.Rows.Count; i++)
-                    if (table["id_passport", i].Value.ToString() == reader[0].ToString()) check = true;
+                    if (table["customers", i].Value.ToString() == reader[5].ToString()) check = true;
                 if (!check)
                 {
-                        table.Rows.Add();
-                        table["id_passport", table.Rows.Count - 1].Value = reader[0].ToString();
-                        table["series", table.Rows.Count - 1].Value = reader[1].ToString();
-                        table["number", table.Rows.Count - 1].Value = reader[2].ToString();
-                        table["issued", table.Rows.Count - 1].Value = reader[3].ToString();
-                        table["birthplace", table.Rows.Count - 1].Value = reader[4].ToString();
-                        table["code", table.Rows.Count - 1].Value = reader[5].ToString();
-                        table["date", table.Rows.Count - 1].Value = reader[6].ToString();
+                    table.Rows.Add();
+                    table["surname", table.Rows.Count - 1].Value = reader[0].ToString();
+                    table["name", table.Rows.Count - 1].Value = reader[1].ToString();
+                    table["middle_name", table.Rows.Count - 1].Value = reader[2].ToString();
+                    table["sex", table.Rows.Count - 1].Value = reader[3].ToString();
+                    table["dateOfBirth", table.Rows.Count - 1].Value = reader[4].ToString();
+                    table["pasport", table.Rows.Count - 1].Value = reader[5].ToString();
+                    table["jobPlace", table.Rows.Count - 1].Value = reader[6].ToString();
+                    table["address", table.Rows.Count - 1].Value = reader[7].ToString();
+                    table["phoneNumber", table.Rows.Count - 1].Value = reader[8].ToString();
                 }
             }
             reader.Close();
             connection.Close();
         }
 
-        private void add_Click(object sender, EventArgs e)
-        {
-            AddPassport form = new AddPassport();
-            form.Show();
-        }
-
-        private void Delete_Click(object sender, EventArgs e)
+        private void delete_Click(object sender, EventArgs e)
         {
             if (num1.Text == "") MessageBox.Show("Введите ID паспорта!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
@@ -98,10 +102,10 @@ namespace Индивидуальное_задание_2.База_данных
                 bool check = new bool();
                 for (int i = 0; i < table.Rows.Count; i++)
                 {
-                    if ((table["id_passport", i].Value.ToString() == num1.Text) && !check)
+                    if ((table["passport", i].Value.ToString() == num1.Text) && !check)
                     {
                         table.Rows.RemoveAt(i);
-                        string com = "DELETE FROM passport WHERE id_passport = '" + num1.Text + "'";
+                        string com = "DELETE FROM customers WHERE id_passport = '" + num1.Text + "'";
 
                         MySqlConnection connection = Program.Conn();
                         connection.Open();
@@ -140,33 +144,48 @@ namespace Индивидуальное_задание_2.База_данных
                         {
                             case 0:
                                 {
-                                    com = "UPDATE passport SET series = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
-                                    table["series", i].Value = value.Text; break;
+                                    com = "UPDATE customers SET surname = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
+                                    table["surname", i].Value = value.Text; break;
                                 }
                             case 1:
                                 {
-                                    com = "UPDATE passport SET number = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
-                                    table["number", i].Value = value.Text; break;
+                                    com = "UPDATE customers SET name = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
+                                    table["name", i].Value = value.Text; break;
                                 }
                             case 2:
                                 {
-                                    com = "UPDATE passport SET issued = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
-                                    table["issued", i].Value = value.Text; break;
+                                    com = "UPDATE customers SET middle_name = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
+                                    table["middle_name", i].Value = value.Text; break;
                                 }
                             case 3:
                                 {
-                                    com = "UPDATE passport SET birthplace = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
-                                    table["birthplace", i].Value = value.Text; break;
+                                    com = "UPDATE customers SET sex = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
+                                    table["sex", i].Value = value.Text; break;
                                 }
                             case 4:
                                 {
-                                    com = "UPDATE passport SET code = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
-                                    table["code", i].Value = value.Text; break;
+                                    com = "UPDATE customers SET date = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
+                                    table["date", i].Value = value.Text; break;
                                 }
                             case 5:
                                 {
-                                    com = "UPDATE passport SET date = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
-                                    table["date", i].Value = value.Text; break;
+                                    com = "UPDATE customers SET id_passport = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
+                                    table["passport", i].Value = value.Text; break;
+                                }
+                            case 6:
+                                {
+                                    com = "UPDATE customers SET job_place = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
+                                    table["jobPlace", i].Value = value.Text; break;
+                                }
+                            case 7:
+                                {
+                                    com = "UPDATE customers SET id_address = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
+                                    table["address", i].Value = value.Text; break;
+                                }
+                            case 8:
+                                {
+                                    com = "UPDATE customers SET phone_number = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
+                                    table["phoneNumber", i].Value = value.Text; break;
                                 }
                         }
 

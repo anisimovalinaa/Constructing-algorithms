@@ -16,7 +16,21 @@ namespace Индивидуальное_задание_2.База_данных
         public Insurance_Events()
         {
             InitializeComponent();
+            table.Font = new Font("Times New Roman", 10, table.Font.Style);
             table.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            show.Font = new Font("Times New Roman", 10, show.Font.Style);
+            add.Font = new Font("Times New Roman", 10, add.Font.Style);
+            delete.Font = new Font("Times New Roman", 10, delete.Font.Style);
+            update.Font = new Font("Times New Roman", 10, update.Font.Style);
+            label1.Font = new Font("Times New Roman", 10, label1.Font.Style);
+            label2.Font = new Font("Times New Roman", 10, label2.Font.Style);
+            label3.Font = new Font("Times New Roman", 10, label3.Font.Style);
+            label4.Font = new Font("Times New Roman", 10, label4.Font.Style);
+            label5.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            num1.Font = new Font("Times New Roman", 10, num1.Font.Style);
+            num2.Font = new Font("Times New Roman", 10, num2.Font.Style);
+            value.Font = new Font("Times New Roman", 10, value.Font.Style);
+            box.Font = new Font("Times New Roman", 10, box.Font.Style);
 
             MySqlConnection connection = Program.Conn();
             connection.Open();
@@ -129,7 +143,7 @@ namespace Индивидуальное_задание_2.База_данных
             {
                 bool check = new bool();
                 for (int i = 0; i < table.Rows.Count; i++)
-                    if (table["id_event", i].Value.ToString() == reader[0].ToString()) check = true;
+                    if (table["id_event", i].Value.ToString() == reader[1].ToString()) check = true;
                 if (!check)
                 {
                     table.Rows.Add();
@@ -140,11 +154,6 @@ namespace Индивидуальное_задание_2.База_данных
             }
             reader.Close();
             connection.Close();
-        }
-
-        private void Insurance_Events_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

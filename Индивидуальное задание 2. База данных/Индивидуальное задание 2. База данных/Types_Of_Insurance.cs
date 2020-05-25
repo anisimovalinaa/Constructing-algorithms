@@ -16,6 +16,7 @@ namespace Индивидуальное_задание_2.База_данных
         public Types_Of_Insurance()
         {
             InitializeComponent();
+            table.Font = new Font("Times New Roman", 10, table.Font.Style);
             table.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             MySqlConnection connection = Program.Conn();

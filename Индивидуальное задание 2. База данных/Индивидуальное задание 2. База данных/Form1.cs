@@ -16,6 +16,11 @@ namespace Индивидуальное_задание_2.База_данных
         public Form1()
         {
             InitializeComponent();
+            customers.Font = new Font("Times New Roman", 12, customers.Font.Style);
+            addresses.Font = new Font("Times New Roman", 12, addresses.Font.Style);
+            types.Font = new Font("Times New Roman", 12, types.Font.Style);
+            events.Font = new Font("Times New Roman", 12, events.Font.Style);
+            passports.Font = new Font("Times New Roman", 12, passports.Font.Style);
         }
 
         private void passports_Click(object sender, EventArgs e)
@@ -39,6 +44,12 @@ namespace Индивидуальное_задание_2.База_данных
         private void addresses_Click(object sender, EventArgs e)
         {
             Addresses form = new Addresses();
+            form.Show();
+        }
+
+        private void customers_Click(object sender, EventArgs e)
+        {
+            Customers form = new Customers();
             form.Show();
         }
     }

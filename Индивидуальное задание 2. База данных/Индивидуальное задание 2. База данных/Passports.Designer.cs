@@ -29,16 +29,9 @@
         private void InitializeComponent()
         {
             this.table = new System.Windows.Forms.DataGridView();
-            this.id_passport = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.series = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.issued = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birthplace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.add = new System.Windows.Forms.Button();
             this.show = new System.Windows.Forms.Button();
-            this.Delete = new System.Windows.Forms.Button();
+            this.delete = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.num1 = new System.Windows.Forms.TextBox();
             this.box = new System.Windows.Forms.ComboBox();
@@ -49,6 +42,13 @@
             this.update = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.value = new System.Windows.Forms.TextBox();
+            this.id_passport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.series = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.issued = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birthplace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,49 +69,8 @@
             this.table.Name = "table";
             this.table.ReadOnly = true;
             this.table.RowHeadersVisible = false;
-            this.table.Size = new System.Drawing.Size(593, 391);
+            this.table.Size = new System.Drawing.Size(609, 391);
             this.table.TabIndex = 0;
-            // 
-            // id_passport
-            // 
-            this.id_passport.HeaderText = "ID паспорта";
-            this.id_passport.Name = "id_passport";
-            this.id_passport.Width = 60;
-            // 
-            // series
-            // 
-            this.series.HeaderText = "Серия";
-            this.series.Name = "series";
-            this.series.Width = 60;
-            // 
-            // number
-            // 
-            this.number.HeaderText = "Номер";
-            this.number.Name = "number";
-            this.number.Width = 60;
-            // 
-            // issued
-            // 
-            this.issued.HeaderText = "Кем выдан";
-            this.issued.Name = "issued";
-            this.issued.Width = 150;
-            // 
-            // birthplace
-            // 
-            this.birthplace.HeaderText = "Место рождения";
-            this.birthplace.Name = "birthplace";
-            // 
-            // code
-            // 
-            this.code.HeaderText = "Код подразделения";
-            this.code.Name = "code";
-            this.code.Width = 90;
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Дата выдачи";
-            this.date.Name = "date";
-            this.date.Width = 70;
             // 
             // add
             // 
@@ -133,24 +92,24 @@
             this.show.UseVisualStyleBackColor = true;
             this.show.Click += new System.EventHandler(this.show_Click);
             // 
-            // Delete
+            // delete
             // 
-            this.Delete.Location = new System.Drawing.Point(844, 122);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(75, 23);
-            this.Delete.TabIndex = 3;
-            this.Delete.Text = "Удалить";
-            this.Delete.UseVisualStyleBackColor = true;
-            this.Delete.Click += new System.EventHandler(this.Delete_Click);
+            this.delete.Location = new System.Drawing.Point(844, 122);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(75, 23);
+            this.delete.TabIndex = 3;
+            this.delete.Text = "Удалить";
+            this.delete.UseVisualStyleBackColor = true;
+            this.delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(675, 127);
+            this.label1.Location = new System.Drawing.Point(662, 127);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 13);
+            this.label1.Size = new System.Drawing.Size(116, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Удалить запись c id:";
+            this.label1.Text = "Введите ID паспорта:";
             // 
             // num1
             // 
@@ -194,7 +153,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(674, 202);
+            this.label3.Location = new System.Drawing.Point(662, 205);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 9;
@@ -203,7 +162,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(701, 237);
+            this.label4.Location = new System.Drawing.Point(699, 237);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 10;
@@ -222,7 +181,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(653, 266);
+            this.label5.Location = new System.Drawing.Point(643, 265);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 13);
             this.label5.TabIndex = 12;
@@ -234,6 +193,54 @@
             this.value.Name = "value";
             this.value.Size = new System.Drawing.Size(120, 20);
             this.value.TabIndex = 13;
+            // 
+            // id_passport
+            // 
+            this.id_passport.HeaderText = "ID паспорта";
+            this.id_passport.Name = "id_passport";
+            this.id_passport.ReadOnly = true;
+            this.id_passport.Width = 60;
+            // 
+            // series
+            // 
+            this.series.HeaderText = "Серия";
+            this.series.Name = "series";
+            this.series.ReadOnly = true;
+            this.series.Width = 60;
+            // 
+            // number
+            // 
+            this.number.HeaderText = "Номер";
+            this.number.Name = "number";
+            this.number.ReadOnly = true;
+            this.number.Width = 60;
+            // 
+            // issued
+            // 
+            this.issued.HeaderText = "Кем выдан";
+            this.issued.Name = "issued";
+            this.issued.ReadOnly = true;
+            this.issued.Width = 150;
+            // 
+            // birthplace
+            // 
+            this.birthplace.HeaderText = "Место рождения";
+            this.birthplace.Name = "birthplace";
+            this.birthplace.ReadOnly = true;
+            // 
+            // code
+            // 
+            this.code.HeaderText = "Код подразделения";
+            this.code.Name = "code";
+            this.code.ReadOnly = true;
+            this.code.Width = 95;
+            // 
+            // date
+            // 
+            this.date.HeaderText = "Дата выдачи";
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
+            this.date.Width = 85;
             // 
             // Passports
             // 
@@ -250,7 +257,7 @@
             this.Controls.Add(this.box);
             this.Controls.Add(this.num1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Delete);
+            this.Controls.Add(this.delete);
             this.Controls.Add(this.show);
             this.Controls.Add(this.add);
             this.Controls.Add(this.table);
@@ -267,7 +274,7 @@
         private System.Windows.Forms.DataGridView table;
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.Button show;
-        private System.Windows.Forms.Button Delete;
+        private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox num1;
         private System.Windows.Forms.ComboBox box;
