@@ -35,5 +35,11 @@ namespace Индивидуальное_задание_2.База_данных
             Insurance_Events form = new Insurance_Events();
             form.Show();
         }
+
+        private void addresses_Click(object sender, EventArgs e)
+        {
+            Addresses form = new Addresses();
+            form.Show();
+        }
     }
 }

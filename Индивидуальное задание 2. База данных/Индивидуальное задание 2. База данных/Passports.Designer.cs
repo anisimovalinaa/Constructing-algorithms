@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.table = new System.Windows.Forms.DataGridView();
+            this.id_passport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.series = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.issued = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birthplace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.add = new System.Windows.Forms.Button();
             this.show = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
@@ -42,19 +49,13 @@
             this.update = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.value = new System.Windows.Forms.TextBox();
-            this.id_passport = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.series = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.issued = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birthplace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
             // table
             // 
             this.table.AllowUserToAddRows = false;
+            this.table.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_passport,
@@ -64,10 +65,53 @@
             this.birthplace,
             this.code,
             this.date});
-            this.table.Location = new System.Drawing.Point(12, 32);
+            this.table.Location = new System.Drawing.Point(28, 32);
             this.table.Name = "table";
-            this.table.Size = new System.Drawing.Size(631, 391);
+            this.table.ReadOnly = true;
+            this.table.RowHeadersVisible = false;
+            this.table.Size = new System.Drawing.Size(593, 391);
             this.table.TabIndex = 0;
+            // 
+            // id_passport
+            // 
+            this.id_passport.HeaderText = "ID паспорта";
+            this.id_passport.Name = "id_passport";
+            this.id_passport.Width = 60;
+            // 
+            // series
+            // 
+            this.series.HeaderText = "Серия";
+            this.series.Name = "series";
+            this.series.Width = 60;
+            // 
+            // number
+            // 
+            this.number.HeaderText = "Номер";
+            this.number.Name = "number";
+            this.number.Width = 60;
+            // 
+            // issued
+            // 
+            this.issued.HeaderText = "Кем выдан";
+            this.issued.Name = "issued";
+            this.issued.Width = 150;
+            // 
+            // birthplace
+            // 
+            this.birthplace.HeaderText = "Место рождения";
+            this.birthplace.Name = "birthplace";
+            // 
+            // code
+            // 
+            this.code.HeaderText = "Код подразделения";
+            this.code.Name = "code";
+            this.code.Width = 90;
+            // 
+            // date
+            // 
+            this.date.HeaderText = "Дата выдачи";
+            this.date.Name = "date";
+            this.date.Width = 70;
             // 
             // add
             // 
@@ -91,7 +135,7 @@
             // 
             // Delete
             // 
-            this.Delete.Location = new System.Drawing.Point(869, 122);
+            this.Delete.Location = new System.Drawing.Point(844, 122);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(75, 23);
             this.Delete.TabIndex = 3;
@@ -110,7 +154,7 @@
             // 
             // num1
             // 
-            this.num1.Location = new System.Drawing.Point(817, 122);
+            this.num1.Location = new System.Drawing.Point(793, 122);
             this.num1.Multiline = true;
             this.num1.Name = "num1";
             this.num1.Size = new System.Drawing.Size(45, 23);
@@ -141,7 +185,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(693, 168);
+            this.label2.Location = new System.Drawing.Point(723, 168);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 13);
             this.label2.TabIndex = 8;
@@ -190,47 +234,6 @@
             this.value.Name = "value";
             this.value.Size = new System.Drawing.Size(120, 20);
             this.value.TabIndex = 13;
-            // 
-            // id_passport
-            // 
-            this.id_passport.HeaderText = "ID паспорта";
-            this.id_passport.Name = "id_passport";
-            this.id_passport.Width = 60;
-            // 
-            // series
-            // 
-            this.series.HeaderText = "Серия";
-            this.series.Name = "series";
-            this.series.Width = 60;
-            // 
-            // number
-            // 
-            this.number.HeaderText = "Номер";
-            this.number.Name = "number";
-            this.number.Width = 60;
-            // 
-            // issued
-            // 
-            this.issued.HeaderText = "Кем выдан";
-            this.issued.Name = "issued";
-            this.issued.Width = 150;
-            // 
-            // birthplace
-            // 
-            this.birthplace.HeaderText = "Место рождения";
-            this.birthplace.Name = "birthplace";
-            // 
-            // code
-            // 
-            this.code.HeaderText = "Код подразделения";
-            this.code.Name = "code";
-            this.code.Width = 90;
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Дата выдачи";
-            this.date.Name = "date";
-            this.date.Width = 70;
             // 
             // Passports
             // 

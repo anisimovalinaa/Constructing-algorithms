@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace Индивидуальное_задание_2.База_данных
 {
-    public partial class Passports : Form
+    public partial class Addresses : Form
     {
-        public Passports()
+        public Addresses()
         {
             InitializeComponent();
             table.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -21,20 +21,20 @@ namespace Индивидуальное_задание_2.База_данных
             MySqlConnection connection = Program.Conn();
             connection.Open();
 
-            string comStr = "SELECT * FROM passport";
+            string comStr = "SELECT * FROM address";
             MySqlCommand com = new MySqlCommand(comStr, connection);
             MySqlDataReader reader = com.ExecuteReader();
 
             while (reader.Read())
             {
                 table.Rows.Add();
-                table["id_passport", table.Rows.Count - 1].Value = reader[0].ToString();
-                table["series", table.Rows.Count - 1].Value = reader[1].ToString();
-                table["number", table.Rows.Count - 1].Value = reader[2].ToString();
-                table["issued", table.Rows.Count - 1].Value = reader[3].ToString();
-                table["birthplace", table.Rows.Count - 1].Value = reader[4].ToString();
-                table["code", table.Rows.Count - 1].Value = reader[5].ToString();
-                table["date", table.Rows.Count - 1].Value = reader[6].ToString();
+                table["id_address", table.Rows.Count - 1].Value = reader[0].ToString();
+                table["country", table.Rows.Count - 1].Value = reader[1].ToString();
+                table["city", table.Rows.Count - 1].Value = reader[2].ToString();
+                table["street", table.Rows.Count - 1].Value = reader[3].ToString();
+                table["number", table.Rows.Count - 1].Value = reader[4].ToString();
+                table["flat", table.Rows.Count - 1].Value = reader[5].ToString();
+                table["postcode", table.Rows.Count - 1].Value = reader[6].ToString();
             }
             reader.Close();
             connection.Close();
@@ -45,49 +45,43 @@ namespace Индивидуальное_задание_2.База_данных
             MySqlConnection connection = Program.Conn();
             connection.Open();
 
-            string comStr = "SELECT * FROM passport";
+            string comStr = "SELECT * FROM address";
             MySqlCommand com = new MySqlCommand(comStr, connection);
             MySqlDataReader reader = com.ExecuteReader();
 
             while (reader.Read())
-            { 
+            {
                 bool check = new bool();
                 for (int i = 0; i < table.Rows.Count; i++)
                     if (table["id_passport", i].Value.ToString() == reader[0].ToString()) check = true;
                 if (!check)
                 {
-                        table.Rows.Add();
-                        table["id_passport", table.Rows.Count - 1].Value = reader[0].ToString();
-                        table["series", table.Rows.Count - 1].Value = reader[1].ToString();
-                        table["number", table.Rows.Count - 1].Value = reader[2].ToString();
-                        table["issued", table.Rows.Count - 1].Value = reader[3].ToString();
-                        table["birthplace", table.Rows.Count - 1].Value = reader[4].ToString();
-                        table["code", table.Rows.Count - 1].Value = reader[5].ToString();
-                        table["date", table.Rows.Count - 1].Value = reader[6].ToString();
+                    table.Rows.Add();
+                    table["id_address", table.Rows.Count - 1].Value = reader[0].ToString();
+                    table["country", table.Rows.Count - 1].Value = reader[1].ToString();
+                    table["city", table.Rows.Count - 1].Value = reader[2].ToString();
+                    table["street", table.Rows.Count - 1].Value = reader[3].ToString();
+                    table["number", table.Rows.Count - 1].Value = reader[4].ToString();
+                    table["flat", table.Rows.Count - 1].Value = reader[5].ToString();
+                    table["postcode", table.Rows.Count - 1].Value = reader[6].ToString();
                 }
             }
             reader.Close();
             connection.Close();
         }
 
-        private void add_Click(object sender, EventArgs e)
+        private void delete_Click(object sender, EventArgs e)
         {
-            AddPassport form = new AddPassport();
-            form.Show();
-        }
-
-        private void Delete_Click(object sender, EventArgs e)
-        {
-            if (num1.Text == "") MessageBox.Show("Введите ID паспорта!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (num1.Text == "") MessageBox.Show("Введите ID адреса!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 bool check = new bool();
                 for (int i = 0; i < table.Rows.Count; i++)
                 {
-                    if ((table["id_passport", i].Value.ToString() == num1.Text) && !check)
+                    if ((table["id_address", i].Value.ToString() == num1.Text) && !check)
                     {
                         table.Rows.RemoveAt(i);
-                        string com = "DELETE FROM passport WHERE id_passport = '" + num1.Text + "'";
+                        string com = "DELETE FROM address WHERE id_address = '" + num1.Text + "'";
 
                         MySqlConnection connection = Program.Conn();
                         connection.Open();
@@ -107,7 +101,7 @@ namespace Индивидуальное_задание_2.База_данных
 
         private void update_Click(object sender, EventArgs e)
         {
-            if (num2.Text == "") MessageBox.Show("Введите ID паспорта!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (num2.Text == "") MessageBox.Show("Введите ID адреса!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (value.Text == "") MessageBox.Show("Введите значение!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (box.Text == "") MessageBox.Show("Поле не выбрано!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
@@ -115,7 +109,7 @@ namespace Индивидуальное_задание_2.База_данных
                 bool check = new bool();
 
                 for (int i = 0; i < table.Rows.Count; i++)
-                    if ((table["id_passport", i].Value.ToString() == num2.Text) && !check)
+                    if ((table["id_address", i].Value.ToString() == num2.Text) && !check)
                     {
                         MySqlConnection connection = Program.Conn();
                         connection.Open();
@@ -126,33 +120,33 @@ namespace Индивидуальное_задание_2.База_данных
                         {
                             case 0:
                                 {
-                                    com = "UPDATE passport SET series = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
-                                    table["series", i].Value = value.Text; break;
+                                    com = "UPDATE address SET country = '" + value.Text + "' WHERE id_address = '" + num2.Text + "'";
+                                    table["country", i].Value = value.Text; break;
                                 }
                             case 1:
                                 {
-                                    com = "UPDATE passport SET number = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
-                                    table["number", i].Value = value.Text; break;
+                                    com = "UPDATE address SET city = '" + value.Text + "' WHERE id_address = '" + num2.Text + "'";
+                                    table["city", i].Value = value.Text; break;
                                 }
                             case 2:
                                 {
-                                    com = "UPDATE passport SET issued = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
-                                    table["issued", i].Value = value.Text; break;
+                                    com = "UPDATE address SET street = '" + value.Text + "' WHERE id_address = '" + num2.Text + "'";
+                                    table["street", i].Value = value.Text; break;
                                 }
                             case 3:
                                 {
-                                    com = "UPDATE passport SET birthplace = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
-                                    table["birthplace", i].Value = value.Text; break;
+                                    com = "UPDATE address SET number = '" + value.Text + "' WHERE id_address = '" + num2.Text + "'";
+                                    table["number", i].Value = value.Text; break;
                                 }
                             case 4:
                                 {
-                                    com = "UPDATE passport SET code = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
-                                    table["code", i].Value = value.Text; break;
+                                    com = "UPDATE address SET flat = '" + value.Text + "' WHERE id_address = '" + num2.Text + "'";
+                                    table["flat", i].Value = value.Text; break;
                                 }
                             case 5:
                                 {
-                                    com = "UPDATE passport SET date = '" + value.Text + "' WHERE id_passport = '" + num2.Text + "'";
-                                    table["date", i].Value = value.Text; break;
+                                    com = "UPDATE address SET postcode = '" + value.Text + "' WHERE id_address = '" + num2.Text + "'";
+                                    table["postcode", i].Value = value.Text; break;
                                 }
                         }
 
@@ -168,6 +162,12 @@ namespace Индивидуальное_задание_2.База_данных
                 num2.Clear();
                 value.Clear();
             }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            AddAddress form = new AddAddress();
+            form.Show();
         }
     }
 }

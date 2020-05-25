@@ -80,6 +80,71 @@ namespace Индивидуальное_задание_2.База_данных
                 value.Clear();
             }
         }
-    }
 
+        private void delete_Click(object sender, EventArgs e)
+        {
+            if (num1.Text == "") MessageBox.Show("Введите ID!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                bool check = new bool();
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    if ((table["id_event", i].Value.ToString() == num1.Text) && !check)
+                    {
+                        table.Rows.RemoveAt(i);
+                        string com = "DELETE FROM insurance_event WHERE id_event = '" + num1.Text + "'";
+
+                        MySqlConnection connection = Program.Conn();
+                        connection.Open();
+
+                        MySqlCommand command = new MySqlCommand(com, connection);
+                        command.ExecuteNonQuery();
+
+                        connection.Close();
+
+                        num1.Clear();
+                    }
+                }
+                if (!check) MessageBox.Show("Такого ID нет!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                num1.Clear();
+            }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            AddEvent form = new AddEvent();
+            form.Show();
+        }
+
+        private void show_Click(object sender, EventArgs e)
+        {
+            MySqlConnection connection = Program.Conn();
+            connection.Open();
+
+            string comStr = "SELECT * FROM insurance_event";
+            MySqlCommand com = new MySqlCommand(comStr, connection);
+            MySqlDataReader reader = com.ExecuteReader();
+
+            while (reader.Read())
+            {
+                bool check = new bool();
+                for (int i = 0; i < table.Rows.Count; i++)
+                    if (table["id_event", i].Value.ToString() == reader[0].ToString()) check = true;
+                if (!check)
+                {
+                    table.Rows.Add();
+                    table["id_types", table.Rows.Count - 1].Value = reader[0].ToString();
+                    table["id_event", table.Rows.Count - 1].Value = reader[1].ToString();
+                    table["name", table.Rows.Count - 1].Value = reader[2].ToString();
+                }
+            }
+            reader.Close();
+            connection.Close();
+        }
+
+        private void Insurance_Events_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

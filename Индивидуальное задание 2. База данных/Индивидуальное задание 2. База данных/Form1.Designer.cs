@@ -31,6 +31,7 @@
             this.passports = new System.Windows.Forms.Button();
             this.types = new System.Windows.Forms.Button();
             this.events = new System.Windows.Forms.Button();
+            this.addresses = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // passports
@@ -63,11 +64,22 @@
             this.events.UseVisualStyleBackColor = true;
             this.events.Click += new System.EventHandler(this.events_Click);
             // 
+            // addresses
+            // 
+            this.addresses.Location = new System.Drawing.Point(233, 249);
+            this.addresses.Name = "addresses";
+            this.addresses.Size = new System.Drawing.Size(241, 23);
+            this.addresses.TabIndex = 3;
+            this.addresses.Text = "Таблица \"Адреса\"";
+            this.addresses.UseVisualStyleBackColor = true;
+            this.addresses.Click += new System.EventHandler(this.addresses_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.addresses);
             this.Controls.Add(this.events);
             this.Controls.Add(this.types);
             this.Controls.Add(this.passports);
@@ -82,6 +94,7 @@
         private System.Windows.Forms.Button passports;
         private System.Windows.Forms.Button types;
         private System.Windows.Forms.Button events;
+        private System.Windows.Forms.Button addresses;
     }
 }
 

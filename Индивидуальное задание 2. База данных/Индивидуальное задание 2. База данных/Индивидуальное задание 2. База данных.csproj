@@ -49,11 +49,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAddress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAddress.Designer.cs">
+      <DependentUpon>AddAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEvent.Designer.cs">
+      <DependentUpon>AddEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddPassport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddPassport.Designer.cs">
       <DependentUpon>AddPassport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Addresses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Addresses.Designer.cs">
+      <DependentUpon>Addresses.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -87,8 +105,17 @@
     <Compile Include="Types_Of_Insurance.Designer.cs">
       <DependentUpon>Types_Of_Insurance.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddAddress.resx">
+      <DependentUpon>AddAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEvent.resx">
+      <DependentUpon>AddEvent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddPassport.resx">
       <DependentUpon>AddPassport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Addresses.resx">
+      <DependentUpon>Addresses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
