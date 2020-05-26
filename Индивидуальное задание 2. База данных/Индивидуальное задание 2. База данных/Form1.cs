@@ -21,6 +21,7 @@ namespace Индивидуальное_задание_2.База_данных
             types.Font = new Font("Times New Roman", 12, types.Font.Style);
             events.Font = new Font("Times New Roman", 12, events.Font.Style);
             passports.Font = new Font("Times New Roman", 12, passports.Font.Style);
+            agentes.Font = new Font("Times New Roman", 12, passports.Font.Style);
         }
 
         private void passports_Click(object sender, EventArgs e)
@@ -50,6 +51,12 @@ namespace Индивидуальное_задание_2.База_данных
         private void customers_Click(object sender, EventArgs e)
         {
             Customers form = new Customers();
+            form.Show();
+        }
+
+        private void agentes_Click(object sender, EventArgs e)
+        {
+            Agents form = new Agents();
             form.Show();
         }
     }

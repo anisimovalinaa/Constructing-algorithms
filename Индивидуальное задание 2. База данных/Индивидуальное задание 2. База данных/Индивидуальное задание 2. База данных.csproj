@@ -55,6 +55,12 @@
     <Compile Include="AddAddress.Designer.cs">
       <DependentUpon>AddAddress.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddAgent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAgent.Designer.cs">
+      <DependentUpon>AddAgent.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,12 @@
     </Compile>
     <Compile Include="Addresses.Designer.cs">
       <DependentUpon>Addresses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agents.Designer.cs">
+      <DependentUpon>Agents.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -114,6 +126,9 @@
     <EmbeddedResource Include="AddAddress.resx">
       <DependentUpon>AddAddress.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddAgent.resx">
+      <DependentUpon>AddAgent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddCustomer.resx">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -125,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Addresses.resx">
       <DependentUpon>Addresses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Agents.resx">
+      <DependentUpon>Agents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

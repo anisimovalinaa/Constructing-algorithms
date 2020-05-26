@@ -33,11 +33,12 @@
             this.events = new System.Windows.Forms.Button();
             this.addresses = new System.Windows.Forms.Button();
             this.customers = new System.Windows.Forms.Button();
+            this.agentes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // passports
             // 
-            this.passports.Location = new System.Drawing.Point(233, 74);
+            this.passports.Location = new System.Drawing.Point(233, 23);
             this.passports.Name = "passports";
             this.passports.Size = new System.Drawing.Size(241, 32);
             this.passports.TabIndex = 0;
@@ -47,7 +48,7 @@
             // 
             // types
             // 
-            this.types.Location = new System.Drawing.Point(233, 134);
+            this.types.Location = new System.Drawing.Point(233, 79);
             this.types.Name = "types";
             this.types.Size = new System.Drawing.Size(241, 30);
             this.types.TabIndex = 1;
@@ -57,7 +58,7 @@
             // 
             // events
             // 
-            this.events.Location = new System.Drawing.Point(233, 191);
+            this.events.Location = new System.Drawing.Point(233, 134);
             this.events.Name = "events";
             this.events.Size = new System.Drawing.Size(241, 33);
             this.events.TabIndex = 2;
@@ -67,7 +68,7 @@
             // 
             // addresses
             // 
-            this.addresses.Location = new System.Drawing.Point(233, 249);
+            this.addresses.Location = new System.Drawing.Point(233, 192);
             this.addresses.Name = "addresses";
             this.addresses.Size = new System.Drawing.Size(241, 32);
             this.addresses.TabIndex = 3;
@@ -77,7 +78,7 @@
             // 
             // customers
             // 
-            this.customers.Location = new System.Drawing.Point(233, 304);
+            this.customers.Location = new System.Drawing.Point(233, 248);
             this.customers.Name = "customers";
             this.customers.Size = new System.Drawing.Size(241, 31);
             this.customers.TabIndex = 4;
@@ -85,11 +86,22 @@
             this.customers.UseVisualStyleBackColor = true;
             this.customers.Click += new System.EventHandler(this.customers_Click);
             // 
+            // agentes
+            // 
+            this.agentes.Location = new System.Drawing.Point(233, 302);
+            this.agentes.Name = "agentes";
+            this.agentes.Size = new System.Drawing.Size(241, 31);
+            this.agentes.TabIndex = 5;
+            this.agentes.Text = "Таблица \"Агенты\"";
+            this.agentes.UseVisualStyleBackColor = true;
+            this.agentes.Click += new System.EventHandler(this.agentes_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.agentes);
             this.Controls.Add(this.customers);
             this.Controls.Add(this.addresses);
             this.Controls.Add(this.events);
@@ -108,6 +120,7 @@
         private System.Windows.Forms.Button events;
         private System.Windows.Forms.Button addresses;
         private System.Windows.Forms.Button customers;
+        private System.Windows.Forms.Button agentes;
     }
 }
 
