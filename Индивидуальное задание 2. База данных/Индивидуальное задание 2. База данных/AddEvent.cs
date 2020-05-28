@@ -18,12 +18,6 @@ namespace Индивидуальное_задание_2.База_данных
             InitializeComponent();
         }
 
-        private void tableTypes_Click(object sender, EventArgs e)
-        {
-            Types_Of_Insurance form = new Types_Of_Insurance();
-            form.Show();
-        }
-
         private void add_Click(object sender, EventArgs e)
         {
             if (id.Text != "" && name.Text != "")

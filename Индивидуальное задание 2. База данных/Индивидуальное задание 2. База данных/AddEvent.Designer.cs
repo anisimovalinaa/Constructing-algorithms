@@ -32,7 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.TextBox();
             this.add = new System.Windows.Forms.Button();
-            this.tableTypes = new System.Windows.Forms.Button();
             this.name = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
@@ -71,16 +70,6 @@
             this.add.UseVisualStyleBackColor = true;
             this.add.Click += new System.EventHandler(this.add_Click);
             // 
-            // tableTypes
-            // 
-            this.tableTypes.Location = new System.Drawing.Point(24, 12);
-            this.tableTypes.Name = "tableTypes";
-            this.tableTypes.Size = new System.Drawing.Size(227, 23);
-            this.tableTypes.TabIndex = 5;
-            this.tableTypes.Text = "Показать таблицу \"Виды страхования\"";
-            this.tableTypes.UseVisualStyleBackColor = true;
-            this.tableTypes.Click += new System.EventHandler(this.tableTypes_Click);
-            // 
             // name
             // 
             this.name.Location = new System.Drawing.Point(113, 74);
@@ -95,7 +84,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(277, 166);
             this.Controls.Add(this.name);
-            this.Controls.Add(this.tableTypes);
             this.Controls.Add(this.add);
             this.Controls.Add(this.id);
             this.Controls.Add(this.label2);
@@ -113,7 +101,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox id;
         private System.Windows.Forms.Button add;
-        private System.Windows.Forms.Button tableTypes;
         private System.Windows.Forms.RichTextBox name;
     }
 }
