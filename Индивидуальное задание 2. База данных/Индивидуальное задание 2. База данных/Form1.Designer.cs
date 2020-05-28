@@ -90,6 +90,14 @@
             this.addAgent = new System.Windows.Forms.Button();
             this.deleteAgent = new System.Windows.Forms.Button();
             this.table_agents = new System.Windows.Forms.DataGridView();
+            this.surnameA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.middle_nameA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passportA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.valuePassport = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -153,14 +161,6 @@
             this.table = new System.Windows.Forms.DataGridView();
             this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surnameA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.middle_nameA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passportA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.policy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.table_policy)).BeginInit();
@@ -462,9 +462,7 @@
             "Отчество",
             "Пол",
             "Дата рождения",
-            "ID паспорта",
             "Место работы",
-            "ID адреса",
             "Номер телефона"});
             this.boxClient.Location = new System.Drawing.Point(910, 255);
             this.boxClient.Name = "boxClient";
@@ -670,9 +668,7 @@
             "Отчество",
             "Пол",
             "Дата рождения",
-            "ID паспорта",
-            "Номер телефона",
-            "ID адреса"});
+            "Номер телефона"});
             this.boxAgent.Location = new System.Drawing.Point(884, 270);
             this.boxAgent.Name = "boxAgent";
             this.boxAgent.Size = new System.Drawing.Size(121, 21);
@@ -795,6 +791,57 @@
             this.table_agents.RowHeadersVisible = false;
             this.table_agents.Size = new System.Drawing.Size(685, 510);
             this.table_agents.TabIndex = 27;
+            // 
+            // surnameA
+            // 
+            this.surnameA.HeaderText = "Фамилия";
+            this.surnameA.Name = "surnameA";
+            this.surnameA.ReadOnly = true;
+            // 
+            // nameA
+            // 
+            this.nameA.HeaderText = "Имя";
+            this.nameA.Name = "nameA";
+            this.nameA.ReadOnly = true;
+            // 
+            // middle_nameA
+            // 
+            this.middle_nameA.HeaderText = "Отчество";
+            this.middle_nameA.Name = "middle_nameA";
+            this.middle_nameA.ReadOnly = true;
+            // 
+            // sexA
+            // 
+            this.sexA.HeaderText = "Пол";
+            this.sexA.Name = "sexA";
+            this.sexA.ReadOnly = true;
+            this.sexA.Width = 60;
+            // 
+            // dateA
+            // 
+            this.dateA.HeaderText = "Дата рождения";
+            this.dateA.Name = "dateA";
+            this.dateA.ReadOnly = true;
+            // 
+            // passportA
+            // 
+            this.passportA.HeaderText = "ID паспорта";
+            this.passportA.Name = "passportA";
+            this.passportA.ReadOnly = true;
+            this.passportA.Width = 60;
+            // 
+            // phone_number
+            // 
+            this.phone_number.HeaderText = "Номер телефона";
+            this.phone_number.Name = "phone_number";
+            this.phone_number.ReadOnly = true;
+            // 
+            // id_address
+            // 
+            this.id_address.HeaderText = "ID адреса";
+            this.id_address.Name = "id_address";
+            this.id_address.ReadOnly = true;
+            this.id_address.Width = 60;
             // 
             // tabPage1
             // 
@@ -1413,57 +1460,6 @@
             this.name2.Name = "name2";
             this.name2.ReadOnly = true;
             this.name2.Width = 200;
-            // 
-            // surnameA
-            // 
-            this.surnameA.HeaderText = "Фамилия";
-            this.surnameA.Name = "surnameA";
-            this.surnameA.ReadOnly = true;
-            // 
-            // nameA
-            // 
-            this.nameA.HeaderText = "Имя";
-            this.nameA.Name = "nameA";
-            this.nameA.ReadOnly = true;
-            // 
-            // middle_nameA
-            // 
-            this.middle_nameA.HeaderText = "Отчество";
-            this.middle_nameA.Name = "middle_nameA";
-            this.middle_nameA.ReadOnly = true;
-            // 
-            // sexA
-            // 
-            this.sexA.HeaderText = "Пол";
-            this.sexA.Name = "sexA";
-            this.sexA.ReadOnly = true;
-            this.sexA.Width = 60;
-            // 
-            // dateA
-            // 
-            this.dateA.HeaderText = "Дата рождения";
-            this.dateA.Name = "dateA";
-            this.dateA.ReadOnly = true;
-            // 
-            // passportA
-            // 
-            this.passportA.HeaderText = "ID паспорта";
-            this.passportA.Name = "passportA";
-            this.passportA.ReadOnly = true;
-            this.passportA.Width = 60;
-            // 
-            // phone_number
-            // 
-            this.phone_number.HeaderText = "Номер телефона";
-            this.phone_number.Name = "phone_number";
-            this.phone_number.ReadOnly = true;
-            // 
-            // id_address
-            // 
-            this.id_address.HeaderText = "ID адреса";
-            this.id_address.Name = "id_address";
-            this.id_address.ReadOnly = true;
-            this.id_address.Width = 60;
             // 
             // Form1
             // 

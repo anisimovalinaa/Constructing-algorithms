@@ -55,8 +55,37 @@ namespace Индивидуальное_задание_2.База_данных
             jobPlace.Font = new Font("Times New Roman", 10, jobPlace.Font.Style);
             phoneNumber.Font = new Font("Times New Roman", 10, phoneNumber.Font.Style);
             date.Font = new Font("Times New Roman", 10, date.Font.Style);
+            issued.Font = new Font("Times New Roman", 10, date.Font.Style);
+            place.Font = new Font("Times New Roman", 10, date.Font.Style);
+            code.Font = new Font("Times New Roman", 10, date.Font.Style);
+            date1.Font = new Font("Times New Roman", 10, date.Font.Style);
+            series.Font = new Font("Times New Roman", 10, date.Font.Style);
+            number1.Font = new Font("Times New Roman", 10, date.Font.Style);
         }
         DataGridView table, table1, table2;
+
+        private void Cleaning()
+        {
+            surname.Clear();
+            name.Clear();
+            middle_name.Clear();
+            sex.Clear();
+            date.Clear();
+            jobPlace.Clear();
+            phoneNumber.Clear();
+            series.Clear();
+            number.Clear();
+            code.Clear();
+            date1.Clear();
+            place.Clear();
+            issued.Clear();
+            country.Clear();
+            city.Clear();
+            street.Clear();
+            number1.Clear();
+            flat.Clear();
+            postcode.Clear();
+        }
 
         private void add_Click(object sender, EventArgs e)
         {
@@ -151,6 +180,7 @@ namespace Индивидуальное_задание_2.База_данных
 
                 reader.Close();
                 connection.Close();
+                Cleaning();
             }
             else MessageBox.Show("Необходимо заполнить все обязательные поля!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

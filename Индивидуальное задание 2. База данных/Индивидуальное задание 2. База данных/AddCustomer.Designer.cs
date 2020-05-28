@@ -77,7 +77,7 @@
             this.add.Location = new System.Drawing.Point(318, 310);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(114, 36);
-            this.add.TabIndex = 0;
+            this.add.TabIndex = 100;
             this.add.Text = "Добавить";
             this.add.UseVisualStyleBackColor = true;
             this.add.Click += new System.EventHandler(this.add_Click);
@@ -88,7 +88,6 @@
             this.label1.Location = new System.Drawing.Point(88, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 13);
-            this.label1.TabIndex = 1;
             this.label1.Text = "Фамилия:";
             // 
             // label2
@@ -97,7 +96,6 @@
             this.label2.Location = new System.Drawing.Point(115, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
-            this.label2.TabIndex = 2;
             this.label2.Text = "Имя:";
             // 
             // label3
@@ -106,7 +104,6 @@
             this.label3.Location = new System.Drawing.Point(87, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
-            this.label3.TabIndex = 3;
             this.label3.Text = "Отчество:";
             // 
             // label4
@@ -115,7 +112,6 @@
             this.label4.Location = new System.Drawing.Point(117, 130);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
-            this.label4.TabIndex = 4;
             this.label4.Text = "Пол:";
             // 
             // label5
@@ -124,7 +120,6 @@
             this.label5.Location = new System.Drawing.Point(55, 161);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 13);
-            this.label5.TabIndex = 5;
             this.label5.Text = "Дата рождения:";
             // 
             // label7
@@ -133,7 +128,6 @@
             this.label7.Location = new System.Drawing.Point(62, 199);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 13);
-            this.label7.TabIndex = 7;
             this.label7.Text = "Место работы:";
             // 
             // label9
@@ -142,7 +136,6 @@
             this.label9.Location = new System.Drawing.Point(48, 238);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(96, 13);
-            this.label9.TabIndex = 9;
             this.label9.Text = "Номер телефона:";
             // 
             // surname
@@ -150,49 +143,49 @@
             this.surname.Location = new System.Drawing.Point(153, 36);
             this.surname.Name = "surname";
             this.surname.Size = new System.Drawing.Size(205, 20);
-            this.surname.TabIndex = 10;
+            this.surname.TabIndex = 1;
             // 
             // name
             // 
             this.name.Location = new System.Drawing.Point(153, 67);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(205, 20);
-            this.name.TabIndex = 11;
+            this.name.TabIndex = 2;
             // 
             // middle_name
             // 
             this.middle_name.Location = new System.Drawing.Point(153, 97);
             this.middle_name.Name = "middle_name";
             this.middle_name.Size = new System.Drawing.Size(205, 20);
-            this.middle_name.TabIndex = 12;
+            this.middle_name.TabIndex = 3;
             // 
             // sex
             // 
             this.sex.Location = new System.Drawing.Point(153, 130);
             this.sex.Name = "sex";
             this.sex.Size = new System.Drawing.Size(205, 20);
-            this.sex.TabIndex = 13;
+            this.sex.TabIndex = 4;
             // 
             // date
             // 
             this.date.Location = new System.Drawing.Point(153, 161);
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(205, 20);
-            this.date.TabIndex = 14;
+            this.date.TabIndex = 5;
             // 
             // jobPlace
             // 
             this.jobPlace.Location = new System.Drawing.Point(153, 196);
             this.jobPlace.Name = "jobPlace";
             this.jobPlace.Size = new System.Drawing.Size(205, 20);
-            this.jobPlace.TabIndex = 16;
+            this.jobPlace.TabIndex = 6;
             // 
             // phoneNumber
             // 
             this.phoneNumber.Location = new System.Drawing.Point(153, 235);
             this.phoneNumber.Name = "phoneNumber";
             this.phoneNumber.Size = new System.Drawing.Size(205, 20);
-            this.phoneNumber.TabIndex = 18;
+            this.phoneNumber.TabIndex = 7;
             // 
             // label10
             // 
@@ -200,7 +193,6 @@
             this.label10.Location = new System.Drawing.Point(430, 270);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(76, 13);
-            this.label10.TabIndex = 24;
             this.label10.Text = "Дата выдачи:";
             // 
             // label11
@@ -209,7 +201,6 @@
             this.label11.Location = new System.Drawing.Point(396, 235);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(110, 13);
-            this.label11.TabIndex = 23;
             this.label11.Text = "Код подразделения:";
             // 
             // label12
@@ -218,7 +209,6 @@
             this.label12.Location = new System.Drawing.Point(411, 199);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(95, 13);
-            this.label12.TabIndex = 22;
             this.label12.Text = "Место рождения:";
             // 
             // label13
@@ -227,7 +217,6 @@
             this.label13.Location = new System.Drawing.Point(440, 130);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(66, 13);
-            this.label13.TabIndex = 21;
             this.label13.Text = "Кем выдан:";
             // 
             // label14
@@ -236,7 +225,6 @@
             this.label14.Location = new System.Drawing.Point(462, 97);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(44, 13);
-            this.label14.TabIndex = 20;
             this.label14.Text = "Номер:";
             // 
             // label15
@@ -245,7 +233,6 @@
             this.label15.Location = new System.Drawing.Point(465, 67);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(41, 13);
-            this.label15.TabIndex = 19;
             this.label15.Text = "Серия:";
             // 
             // label16
@@ -254,7 +241,6 @@
             this.label16.Location = new System.Drawing.Point(488, 36);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(118, 13);
-            this.label16.TabIndex = 25;
             this.label16.Text = "Сведения о паспорте:";
             // 
             // series
@@ -262,35 +248,35 @@
             this.series.Location = new System.Drawing.Point(527, 67);
             this.series.Name = "series";
             this.series.Size = new System.Drawing.Size(144, 20);
-            this.series.TabIndex = 26;
+            this.series.TabIndex = 8;
             // 
             // number
             // 
             this.number.Location = new System.Drawing.Point(527, 96);
             this.number.Name = "number";
             this.number.Size = new System.Drawing.Size(144, 20);
-            this.number.TabIndex = 27;
+            this.number.TabIndex = 9;
             // 
             // date1
             // 
             this.date1.Location = new System.Drawing.Point(527, 267);
             this.date1.Name = "date1";
             this.date1.Size = new System.Drawing.Size(144, 20);
-            this.date1.TabIndex = 28;
+            this.date1.TabIndex = 13;
             // 
             // code
             // 
             this.code.Location = new System.Drawing.Point(527, 232);
             this.code.Name = "code";
             this.code.Size = new System.Drawing.Size(144, 20);
-            this.code.TabIndex = 29;
+            this.code.TabIndex = 12;
             // 
             // place
             // 
             this.place.Location = new System.Drawing.Point(527, 196);
             this.place.Name = "place";
             this.place.Size = new System.Drawing.Size(144, 20);
-            this.place.TabIndex = 30;
+            this.place.TabIndex = 11;
             // 
             // issued
             // 
@@ -298,7 +284,7 @@
             this.issued.Multiline = true;
             this.issued.Name = "issued";
             this.issued.Size = new System.Drawing.Size(144, 45);
-            this.issued.TabIndex = 31;
+            this.issued.TabIndex = 10;
             // 
             // label6
             // 
@@ -306,7 +292,6 @@
             this.label6.Location = new System.Drawing.Point(952, 230);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 13);
-            this.label6.TabIndex = 44;
             this.label6.Text = "*необязательное поле";
             // 
             // city
@@ -314,42 +299,42 @@
             this.city.Location = new System.Drawing.Point(846, 97);
             this.city.Name = "city";
             this.city.Size = new System.Drawing.Size(100, 20);
-            this.city.TabIndex = 43;
+            this.city.TabIndex = 15;
             // 
             // country
             // 
             this.country.Location = new System.Drawing.Point(846, 60);
             this.country.Name = "country";
             this.country.Size = new System.Drawing.Size(100, 20);
-            this.country.TabIndex = 42;
+            this.country.TabIndex = 14;
             // 
             // street
             // 
             this.street.Location = new System.Drawing.Point(846, 140);
             this.street.Name = "street";
             this.street.Size = new System.Drawing.Size(100, 20);
-            this.street.TabIndex = 41;
+            this.street.TabIndex = 16;
             // 
             // postcode
             // 
             this.postcode.Location = new System.Drawing.Point(846, 272);
             this.postcode.Name = "postcode";
             this.postcode.Size = new System.Drawing.Size(100, 20);
-            this.postcode.TabIndex = 40;
+            this.postcode.TabIndex = 19;
             // 
             // flat
             // 
             this.flat.Location = new System.Drawing.Point(846, 227);
             this.flat.Name = "flat";
             this.flat.Size = new System.Drawing.Size(100, 20);
-            this.flat.TabIndex = 39;
+            this.flat.TabIndex = 18;
             // 
             // number1
             // 
             this.number1.Location = new System.Drawing.Point(846, 186);
             this.number1.Name = "number1";
             this.number1.Size = new System.Drawing.Size(100, 20);
-            this.number1.TabIndex = 38;
+            this.number1.TabIndex = 17;
             // 
             // label17
             // 
@@ -357,7 +342,6 @@
             this.label17.Location = new System.Drawing.Point(730, 275);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(99, 13);
-            this.label17.TabIndex = 37;
             this.label17.Text = "Почтовый индекс:";
             // 
             // label18
@@ -366,7 +350,6 @@
             this.label18.Location = new System.Drawing.Point(772, 230);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(58, 13);
-            this.label18.TabIndex = 36;
             this.label18.Text = "Квартира:";
             // 
             // label19
@@ -375,7 +358,6 @@
             this.label19.Location = new System.Drawing.Point(757, 189);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(73, 13);
-            this.label19.TabIndex = 35;
             this.label19.Text = "Номер дома:";
             // 
             // label20
@@ -384,7 +366,6 @@
             this.label20.Location = new System.Drawing.Point(787, 143);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(42, 13);
-            this.label20.TabIndex = 34;
             this.label20.Text = "Улица:";
             // 
             // label21
@@ -393,7 +374,6 @@
             this.label21.Location = new System.Drawing.Point(790, 100);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(40, 13);
-            this.label21.TabIndex = 33;
             this.label21.Text = "Город:";
             // 
             // label22
@@ -402,7 +382,6 @@
             this.label22.Location = new System.Drawing.Point(784, 60);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(46, 13);
-            this.label22.TabIndex = 32;
             this.label22.Text = "Страна:";
             // 
             // label23
@@ -411,7 +390,6 @@
             this.label23.Location = new System.Drawing.Point(818, 36);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(113, 13);
-            this.label23.TabIndex = 45;
             this.label23.Text = "Сведения об адресе:";
             // 
             // AddCustomer
