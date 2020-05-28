@@ -38,7 +38,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 51);
+            this.label1.Location = new System.Drawing.Point(21, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 13);
             this.label1.TabIndex = 0;
@@ -47,7 +47,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 77);
+            this.label2.Location = new System.Drawing.Point(21, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 1;
@@ -55,16 +55,16 @@
             // 
             // id
             // 
-            this.id.Location = new System.Drawing.Point(151, 48);
+            this.id.Location = new System.Drawing.Point(151, 25);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(114, 20);
             this.id.TabIndex = 2;
             // 
             // add
             // 
-            this.add.Location = new System.Drawing.Point(92, 130);
+            this.add.Location = new System.Drawing.Point(79, 119);
             this.add.Name = "add";
-            this.add.Size = new System.Drawing.Size(75, 23);
+            this.add.Size = new System.Drawing.Size(107, 35);
             this.add.TabIndex = 4;
             this.add.Text = "Добавить";
             this.add.UseVisualStyleBackColor = true;
@@ -72,7 +72,7 @@
             // 
             // name
             // 
-            this.name.Location = new System.Drawing.Point(113, 74);
+            this.name.Location = new System.Drawing.Point(113, 60);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(152, 41);
             this.name.TabIndex = 6;

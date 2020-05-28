@@ -71,7 +71,7 @@
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.middle_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passport = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.jobPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,14 +90,6 @@
             this.addAgent = new System.Windows.Forms.Button();
             this.deleteAgent = new System.Windows.Forms.Button();
             this.table_agents = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.valuePassport = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -161,6 +153,14 @@
             this.table = new System.Windows.Forms.DataGridView();
             this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surnameA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.middle_nameA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passportA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.policy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.table_policy)).BeginInit();
@@ -568,7 +568,7 @@
             this.name,
             this.middle_name,
             this.sex,
-            this.dataGridViewTextBoxColumn1,
+            this.dateC,
             this.passport,
             this.jobPlace,
             this.address,
@@ -605,12 +605,12 @@
             this.sex.ReadOnly = true;
             this.sex.Width = 60;
             // 
-            // dataGridViewTextBoxColumn1
+            // dateC
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Дата рождения";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 90;
+            this.dateC.HeaderText = "Дата рождения";
+            this.dateC.Name = "dateC";
+            this.dateC.ReadOnly = true;
+            this.dateC.Width = 90;
             // 
             // passport
             // 
@@ -781,12 +781,12 @@
             this.table_agents.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.table_agents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.table_agents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
+            this.surnameA,
+            this.nameA,
+            this.middle_nameA,
+            this.sexA,
+            this.dateA,
+            this.passportA,
             this.phone_number,
             this.id_address});
             this.table_agents.Location = new System.Drawing.Point(3, 3);
@@ -795,57 +795,6 @@
             this.table_agents.RowHeadersVisible = false;
             this.table_agents.Size = new System.Drawing.Size(685, 510);
             this.table_agents.TabIndex = 27;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Фамилия";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Имя";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Отчество";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Пол";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Дата рождения";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "ID паспорта";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 60;
-            // 
-            // phone_number
-            // 
-            this.phone_number.HeaderText = "Номер телефона";
-            this.phone_number.Name = "phone_number";
-            this.phone_number.ReadOnly = true;
-            // 
-            // id_address
-            // 
-            this.id_address.HeaderText = "ID адреса";
-            this.id_address.Name = "id_address";
-            this.id_address.ReadOnly = true;
-            this.id_address.Width = 60;
             // 
             // tabPage1
             // 
@@ -1465,6 +1414,57 @@
             this.name2.ReadOnly = true;
             this.name2.Width = 200;
             // 
+            // surnameA
+            // 
+            this.surnameA.HeaderText = "Фамилия";
+            this.surnameA.Name = "surnameA";
+            this.surnameA.ReadOnly = true;
+            // 
+            // nameA
+            // 
+            this.nameA.HeaderText = "Имя";
+            this.nameA.Name = "nameA";
+            this.nameA.ReadOnly = true;
+            // 
+            // middle_nameA
+            // 
+            this.middle_nameA.HeaderText = "Отчество";
+            this.middle_nameA.Name = "middle_nameA";
+            this.middle_nameA.ReadOnly = true;
+            // 
+            // sexA
+            // 
+            this.sexA.HeaderText = "Пол";
+            this.sexA.Name = "sexA";
+            this.sexA.ReadOnly = true;
+            this.sexA.Width = 60;
+            // 
+            // dateA
+            // 
+            this.dateA.HeaderText = "Дата рождения";
+            this.dateA.Name = "dateA";
+            this.dateA.ReadOnly = true;
+            // 
+            // passportA
+            // 
+            this.passportA.HeaderText = "ID паспорта";
+            this.passportA.Name = "passportA";
+            this.passportA.ReadOnly = true;
+            this.passportA.Width = 60;
+            // 
+            // phone_number
+            // 
+            this.phone_number.HeaderText = "Номер телефона";
+            this.phone_number.Name = "phone_number";
+            this.phone_number.ReadOnly = true;
+            // 
+            // id_address
+            // 
+            this.id_address.HeaderText = "ID адреса";
+            this.id_address.Name = "id_address";
+            this.id_address.ReadOnly = true;
+            this.id_address.Width = 60;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1539,15 +1539,6 @@
         private System.Windows.Forms.Button deleteClient;
         private System.Windows.Forms.Button addClient;
         private System.Windows.Forms.DataGridView table_customer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn surname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn middle_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jobPlace;
-        private System.Windows.Forms.DataGridViewTextBoxColumn address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumber;
         private System.Windows.Forms.ComboBox boxAgent;
         private System.Windows.Forms.TextBox valueAgent;
         private System.Windows.Forms.TextBox numAgent2;
@@ -1561,14 +1552,6 @@
         private System.Windows.Forms.Button addAgent;
         private System.Windows.Forms.Button deleteAgent;
         private System.Windows.Forms.DataGridView table_agents;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phone_number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_address;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox valuePassport;
         private System.Windows.Forms.Label label16;
@@ -1632,6 +1615,23 @@
         private System.Windows.Forms.DataGridView table;
         private System.Windows.Forms.DataGridViewTextBoxColumn id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn name2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn surname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn middle_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jobPlace;
+        private System.Windows.Forms.DataGridViewTextBoxColumn address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn surnameA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn middle_nameA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sexA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passportA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phone_number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_address;
     }
 }
 

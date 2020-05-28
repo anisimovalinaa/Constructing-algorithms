@@ -209,7 +209,7 @@ namespace Индивидуальное_задание_2.База_данных
                 table_customer["name", table_customer.Rows.Count - 1].Value = reader[1].ToString();
                 table_customer["middle_name", table_customer.Rows.Count - 1].Value = reader[2].ToString();
                 table_customer["sex", table_customer.Rows.Count - 1].Value = reader[3].ToString();
-                table_customer["dateOfBirth", table_customer.Rows.Count - 1].Value = reader[4].ToString();
+                table_customer["dateC", table_customer.Rows.Count - 1].Value = reader[4].ToString();
                 table_customer["pasport", table_customer.Rows.Count - 1].Value = reader[5].ToString();
                 table_customer["jobPlace", table_customer.Rows.Count - 1].Value = reader[6].ToString();
                 table_customer["address", table_customer.Rows.Count - 1].Value = reader[7].ToString();
@@ -280,7 +280,7 @@ namespace Индивидуальное_задание_2.База_данных
             while (reader.Read())
             {
                 tableAddress.Rows.Add();
-                tableAddress["id_address", tableAddress.Rows.Count - 1].Value = reader[0].ToString();
+                tableAddress["id", tableAddress.Rows.Count - 1].Value = reader[0].ToString();
                 tableAddress["country", tableAddress.Rows.Count - 1].Value = reader[1].ToString();
                 tableAddress["city", tableAddress.Rows.Count - 1].Value = reader[2].ToString();
                 tableAddress["street", tableAddress.Rows.Count - 1].Value = reader[3].ToString();
@@ -428,13 +428,13 @@ namespace Индивидуальное_задание_2.База_данных
             form.Show();
         }
 
+        //**********************Клиенты********************************
         private void addClient_Click(object sender, EventArgs e)
         {
-            AddCustomer form = new AddCustomer();
+            AddCustomer form = new AddCustomer(table_customer);
             form.Show();
         }
 
-        //**********************Клиенты********************************
         private void deleteClient_Click(object sender, EventArgs e)
         {
             if (numClient1.Text == "") MessageBox.Show("Введите ID паспорта!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -474,7 +474,7 @@ namespace Индивидуальное_задание_2.База_данных
                 bool check = new bool();
 
                 for (int i = 0; i < table_customer.Rows.Count; i++)
-                    if ((table_customer["id_passport", i].Value.ToString() == numClient2.Text) && !check)
+                    if ((table_customer["passport", i].Value.ToString() == numClient2.Text) && !check)
                     {
                         MySqlConnection connection = Program.Conn();
                         connection.Open();
@@ -506,7 +506,7 @@ namespace Индивидуальное_задание_2.База_данных
                             case 4:
                                 {
                                     com = "UPDATE customers SET date = '" + valueClient.Text + "' WHERE id_passport = '" + numClient2.Text + "'";
-                                    table_customer["date", i].Value = valueClient.Text; break;
+                                    table_customer["dateC", i].Value = valueClient.Text; break;
                                 }
                             case 5:
                                 {
@@ -548,7 +548,7 @@ namespace Индивидуальное_задание_2.База_данных
         //***************************Агенты********************************
         private void addAgent_Click(object sender, EventArgs e)
         {
-            AddAgent form = new AddAgent();
+            AddAgent form = new AddAgent(table_agents);
             form.Show();
         }
 
@@ -560,7 +560,7 @@ namespace Индивидуальное_задание_2.База_данных
                 bool check = new bool();
                 for (int i = 0; i < table_agents.Rows.Count; i++)
                 {
-                    if ((table_agents["passport", i].Value.ToString() == numAgent1.Text) && !check)
+                    if ((table_agents["passportA", i].Value.ToString() == numAgent1.Text) && !check)
                     {
                         table_agents.Rows.RemoveAt(i);
                         string com = "DELETE FROM agents WHERE passport = '" + numAgent1.Text + "'";
@@ -591,7 +591,7 @@ namespace Индивидуальное_задание_2.База_данных
                 bool check = new bool();
 
                 for (int i = 0; i < table_agents.Rows.Count; i++)
-                    if ((table_agents["id_address", i].Value.ToString() == numAgent2.Text) && !check)
+                    if ((table_agents["passportA", i].Value.ToString() == numAgent2.Text) && !check)
                     {
                         MySqlConnection connection = Program.Conn();
                         connection.Open();
@@ -603,32 +603,32 @@ namespace Индивидуальное_задание_2.База_данных
                             case 0:
                                 {
                                     com = "UPDATE address SET surname = '" + valueAgent.Text + "' WHERE passport = '" + numAgent2.Text + "'";
-                                    table_agents["surname", i].Value = valueAgent.Text; break;
+                                    table_agents["surnameA", i].Value = valueAgent.Text; break;
                                 }
                             case 1:
                                 {
                                     com = "UPDATE address SET name = '" + valueAgent.Text + "' WHERE passport = '" + numAgent2.Text + "'";
-                                    table_agents["name", i].Value = valueAgent.Text; break;
+                                    table_agents["nameA", i].Value = valueAgent.Text; break;
                                 }
                             case 2:
                                 {
                                     com = "UPDATE address SET middle_name = '" + valueAgent.Text + "' WHERE passport = '" + numAgent2.Text + "'";
-                                    table_agents["middle_name", i].Value = valueAgent.Text; break;
+                                    table_agents["middle_nameA", i].Value = valueAgent.Text; break;
                                 }
                             case 3:
                                 {
                                     com = "UPDATE address SET sex = '" + valueAgent.Text + "' WHERE passport = '" + numAgent2.Text + "'";
-                                    table_agents["sex", i].Value = valueAgent.Text; break;
+                                    table_agents["sexA", i].Value = valueAgent.Text; break;
                                 }
                             case 4:
                                 {
                                     com = "UPDATE address SET date = '" + valueAgent.Text + "' WHERE passport = '" + numAgent2.Text + "'";
-                                    table_agents["date", i].Value = valueAgent.Text; break;
+                                    table_agents["dateA", i].Value = valueAgent.Text; break;
                                 }
                             case 5:
                                 {
                                     com = "UPDATE address SET passport = '" + valueAgent.Text + "' WHERE passport = '" + numAgent2.Text + "'";
-                                    table_agents["passport", i].Value = valueAgent.Text; break;
+                                    table_agents["passportA", i].Value = valueAgent.Text; break;
                                 }
                             case 6:
                                 {
@@ -659,7 +659,7 @@ namespace Индивидуальное_задание_2.База_данных
         //********************Паспорта****************************
         private void addPassport_Click(object sender, EventArgs e)
         {
-            AddPassport form = new AddPassport();
+            AddPassport form = new AddPassport(table_passport);
             form.Show();
         }
 
@@ -760,7 +760,7 @@ namespace Индивидуальное_задание_2.База_данных
         //****************************Адреса*****************
         private void addAddress_Click(object sender, EventArgs e)
         {
-            AddAddress form = new AddAddress();
+            AddAddress form = new AddAddress(tableAddress);
             form.Show();
         }
 
@@ -772,7 +772,7 @@ namespace Индивидуальное_задание_2.База_данных
                 bool check = new bool();
                 for (int i = 0; i < tableAddress.Rows.Count; i++)
                 {
-                    if ((tableAddress["id_address", i].Value.ToString() == numAddress1.Text) && !check)
+                    if ((tableAddress["id", i].Value.ToString() == numAddress1.Text) && !check)
                     {
                         tableAddress.Rows.RemoveAt(i);
                         string com = "DELETE FROM address WHERE id_address = '" + numAddress1.Text + "'";
@@ -803,7 +803,7 @@ namespace Индивидуальное_задание_2.База_данных
                 bool check = new bool();
 
                 for (int i = 0; i < tableAddress.Rows.Count; i++)
-                    if ((tableAddress["id_address", i].Value.ToString() == numAddress2.Text) && !check)
+                    if ((tableAddress["id", i].Value.ToString() == numAddress2.Text) && !check)
                     {
                         MySqlConnection connection = Program.Conn();
                         connection.Open();
@@ -861,7 +861,7 @@ namespace Индивидуальное_задание_2.База_данных
         //********************События**************************************
         private void addEvent_Click(object sender, EventArgs e)
         {
-            AddEvent form = new AddEvent();
+            AddEvent form = new AddEvent(table_event);
             form.Show();
         }
 

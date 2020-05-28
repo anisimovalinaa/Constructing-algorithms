@@ -144,7 +144,7 @@
             // 
             this.add.Location = new System.Drawing.Point(114, 299);
             this.add.Name = "add";
-            this.add.Size = new System.Drawing.Size(75, 23);
+            this.add.Size = new System.Drawing.Size(110, 39);
             this.add.TabIndex = 12;
             this.add.Text = "Добавить";
             this.add.UseVisualStyleBackColor = true;

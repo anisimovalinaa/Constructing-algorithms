@@ -51,64 +51,64 @@
             // 
             // insEvent
             // 
-            this.insEvent.Location = new System.Drawing.Point(156, 65);
+            this.insEvent.Location = new System.Drawing.Point(172, 65);
             this.insEvent.Name = "insEvent";
-            this.insEvent.Size = new System.Drawing.Size(100, 20);
+            this.insEvent.Size = new System.Drawing.Size(142, 20);
             this.insEvent.TabIndex = 33;
             // 
             // begin
             // 
-            this.begin.Location = new System.Drawing.Point(156, 112);
+            this.begin.Location = new System.Drawing.Point(172, 97);
             this.begin.Name = "begin";
-            this.begin.Size = new System.Drawing.Size(100, 20);
+            this.begin.Size = new System.Drawing.Size(142, 20);
             this.begin.TabIndex = 32;
             // 
             // status
             // 
-            this.status.Location = new System.Drawing.Point(156, 290);
+            this.status.Location = new System.Drawing.Point(172, 281);
             this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(100, 20);
+            this.status.Size = new System.Drawing.Size(142, 20);
             this.status.TabIndex = 31;
             // 
             // agent
             // 
-            this.agent.Location = new System.Drawing.Point(156, 182);
+            this.agent.Location = new System.Drawing.Point(172, 173);
             this.agent.Name = "agent";
-            this.agent.Size = new System.Drawing.Size(100, 20);
+            this.agent.Size = new System.Drawing.Size(142, 20);
             this.agent.TabIndex = 30;
             // 
             // payments
             // 
-            this.payments.Location = new System.Drawing.Point(156, 242);
+            this.payments.Location = new System.Drawing.Point(172, 245);
             this.payments.Name = "payments";
-            this.payments.Size = new System.Drawing.Size(100, 20);
+            this.payments.Size = new System.Drawing.Size(142, 20);
             this.payments.TabIndex = 29;
             // 
             // amount
             // 
-            this.amount.Location = new System.Drawing.Point(156, 216);
+            this.amount.Location = new System.Drawing.Point(172, 210);
             this.amount.Name = "amount";
-            this.amount.Size = new System.Drawing.Size(100, 20);
+            this.amount.Size = new System.Drawing.Size(142, 20);
             this.amount.TabIndex = 28;
             // 
             // end
             // 
-            this.end.Location = new System.Drawing.Point(156, 147);
+            this.end.Location = new System.Drawing.Point(172, 135);
             this.end.Name = "end";
-            this.end.Size = new System.Drawing.Size(100, 20);
+            this.end.Size = new System.Drawing.Size(142, 20);
             this.end.TabIndex = 27;
             // 
             // customer
             // 
-            this.customer.Location = new System.Drawing.Point(156, 31);
+            this.customer.Location = new System.Drawing.Point(172, 31);
             this.customer.Name = "customer";
-            this.customer.Size = new System.Drawing.Size(100, 20);
+            this.customer.Size = new System.Drawing.Size(142, 20);
             this.customer.TabIndex = 26;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(32, 293);
+            this.label8.Location = new System.Drawing.Point(112, 284);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 13);
             this.label8.TabIndex = 25;
@@ -117,7 +117,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(32, 245);
+            this.label7.Location = new System.Drawing.Point(100, 248);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 24;
@@ -126,7 +126,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 216);
+            this.label6.Location = new System.Drawing.Point(91, 213);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 13);
             this.label6.TabIndex = 23;
@@ -135,7 +135,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 182);
+            this.label5.Location = new System.Drawing.Point(98, 176);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 22;
@@ -144,7 +144,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 147);
+            this.label4.Location = new System.Drawing.Point(17, 138);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(130, 13);
             this.label4.TabIndex = 21;
@@ -153,7 +153,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 112);
+            this.label3.Location = new System.Drawing.Point(11, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(136, 13);
             this.label3.TabIndex = 20;
@@ -162,7 +162,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 68);
+            this.label2.Location = new System.Drawing.Point(20, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 13);
             this.label2.TabIndex = 19;
@@ -171,7 +171,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 34);
+            this.label1.Location = new System.Drawing.Point(91, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 18;
@@ -179,9 +179,9 @@
             // 
             // add
             // 
-            this.add.Location = new System.Drawing.Point(118, 403);
+            this.add.Location = new System.Drawing.Point(115, 358);
             this.add.Name = "add";
-            this.add.Size = new System.Drawing.Size(75, 23);
+            this.add.Size = new System.Drawing.Size(103, 33);
             this.add.TabIndex = 17;
             this.add.Text = "Добавить";
             this.add.UseVisualStyleBackColor = true;
@@ -189,15 +189,15 @@
             // 
             // date
             // 
-            this.date.Location = new System.Drawing.Point(156, 329);
+            this.date.Location = new System.Drawing.Point(172, 318);
             this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(100, 20);
+            this.date.Size = new System.Drawing.Size(142, 20);
             this.date.TabIndex = 35;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(32, 332);
+            this.label9.Location = new System.Drawing.Point(56, 321);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 13);
             this.label9.TabIndex = 34;
@@ -207,7 +207,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 450);
+            this.ClientSize = new System.Drawing.Size(352, 403);
             this.Controls.Add(this.date);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.insEvent);
