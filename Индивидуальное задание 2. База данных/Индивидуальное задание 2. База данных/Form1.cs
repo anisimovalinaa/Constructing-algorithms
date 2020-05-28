@@ -210,7 +210,7 @@ namespace Индивидуальное_задание_2.База_данных
                 table_customer["middle_name", table_customer.Rows.Count - 1].Value = reader[2].ToString();
                 table_customer["sex", table_customer.Rows.Count - 1].Value = reader[3].ToString();
                 table_customer["dateC", table_customer.Rows.Count - 1].Value = reader[4].ToString();
-                table_customer["pasport", table_customer.Rows.Count - 1].Value = reader[5].ToString();
+                table_customer["passport", table_customer.Rows.Count - 1].Value = reader[5].ToString();
                 table_customer["jobPlace", table_customer.Rows.Count - 1].Value = reader[6].ToString();
                 table_customer["address", table_customer.Rows.Count - 1].Value = reader[7].ToString();
                 table_customer["phoneNumber", table_customer.Rows.Count - 1].Value = reader[8].ToString();
@@ -431,7 +431,7 @@ namespace Индивидуальное_задание_2.База_данных
         //**********************Клиенты********************************
         private void addClient_Click(object sender, EventArgs e)
         {
-            AddCustomer form = new AddCustomer(table_customer);
+            AddCustomer form = new AddCustomer(table_customer, table_passport, tableAddress);
             form.Show();
         }
 
@@ -457,6 +457,7 @@ namespace Индивидуальное_задание_2.База_данных
                         connection.Close();
 
                         numClient1.Clear();
+                        check = true;
                     }
                 }
                 if (!check) MessageBox.Show("Такого ID нет!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -685,6 +686,7 @@ namespace Индивидуальное_задание_2.База_данных
                         connection.Close();
 
                         numAgent1.Clear();
+                        check = true;
                     }
                 }
                 if (!check) MessageBox.Show("Такого ID нет!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -739,7 +741,7 @@ namespace Индивидуальное_задание_2.База_данных
                             case 5:
                                 {
                                     com = "UPDATE passport SET date = '" + valuePassport.Text + "' WHERE id_passport = '" + numPassport2.Text + "'";
-                                    table_passport["date", i].Value = valuePassport.Text; break;
+                                    table_passport["date1", i].Value = valuePassport.Text; break;
                                 }
                         }
 
@@ -784,8 +786,7 @@ namespace Индивидуальное_задание_2.База_данных
                         command.ExecuteNonQuery();
 
                         connection.Close();
-
-                        numAddress1.Clear();
+                        check = true;
                     }
                 }
                 if (!check) MessageBox.Show("Такого ID нет!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
