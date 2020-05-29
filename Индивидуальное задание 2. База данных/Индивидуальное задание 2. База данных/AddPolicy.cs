@@ -47,7 +47,7 @@ namespace Индивидуальное_задание_2.База_данных
                 connection.Open();
 
                 string comStr =
-                "INSERT INTO `insurance company`.`insurance_policy` (`customer` ,`insurance_event` ,`begin`, `end` ,`agent` ,`amount`,'payments','date','status')" +
+                "INSERT INTO `insurance company`.`insurance_policy` (`customer` ,`insurance_event` ,`begin`, `end` ,`agent` ,`amount`,`payments`,`date`,`status`)" +
                 "VALUES('" + customer.Text + "', '" + insEvent.Text + "', '" + begin.Text + "', '" + end.Text + "', '" + agent.Text +
                 "', '" + amount.Text + "', '" + payments.Text + "', '" + date.Text + "', '" + status.Text + "')";
                 MySqlCommand com = new MySqlCommand(comStr, connection);

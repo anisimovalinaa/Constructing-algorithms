@@ -171,7 +171,11 @@ namespace Индивидуальное_задание_2.База_данных
             MySqlConnection connection = Program.Conn();
             connection.Open();
 
-            string comStr = "SELECT * FROM insurance_policy";
+            string comStr = "SELECT a.number, b.series, b.number, e.name, a.begin, a.end, p.series, p.number, a.amount, a.payments, a.date, a.status " +
+                "FROM `insurance_policy` a " +
+                "LEFT OUTER JOIN `passport` b ON b.id_passport = a.customer " +
+                "LEFT OUTER JOIN `passport` p ON p.id_passport = a.agent " +
+                "LEFT OUTER JOIN `insurance_event` e ON e.id_event = a.insurance_event";
             MySqlCommand com = new MySqlCommand(comStr, connection);
             MySqlDataReader reader = com.ExecuteReader();
 
@@ -179,15 +183,17 @@ namespace Индивидуальное_задание_2.База_данных
             {
                 table_policy.Rows.Add();
                 table_policy["number", table_policy.Rows.Count - 1].Value = reader[0].ToString();
-                table_policy["customer", table_policy.Rows.Count - 1].Value = reader[1].ToString();
-                table_policy["insEvent", table_policy.Rows.Count - 1].Value = reader[2].ToString();
-                table_policy["begin", table_policy.Rows.Count - 1].Value = reader[3].ToString();
-                table_policy["end", table_policy.Rows.Count - 1].Value = reader[4].ToString();
-                table_policy["agent", table_policy.Rows.Count - 1].Value = reader[5].ToString();
-                table_policy["amount", table_policy.Rows.Count - 1].Value = reader[6].ToString();
-                table_policy["payments", table_policy.Rows.Count - 1].Value = reader[7].ToString();
-                table_policy["date", table_policy.Rows.Count - 1].Value = reader[8].ToString();
-                table_policy["status", table_policy.Rows.Count - 1].Value = reader[9].ToString();
+                table_policy["series1", table_policy.Rows.Count - 1].Value = reader[1].ToString();
+                table_policy["number11", table_policy.Rows.Count - 1].Value = reader[2].ToString();
+                table_policy["insEvent", table_policy.Rows.Count - 1].Value = reader[3].ToString();
+                table_policy["begin", table_policy.Rows.Count - 1].Value = reader[4].ToString();
+                table_policy["end", table_policy.Rows.Count - 1].Value = reader[5].ToString();
+                table_policy["series2", table_policy.Rows.Count - 1].Value = reader[6].ToString();
+                table_policy["number22", table_policy.Rows.Count - 1].Value = reader[7].ToString();
+                table_policy["amount", table_policy.Rows.Count - 1].Value = reader[8].ToString();
+                table_policy["payments", table_policy.Rows.Count - 1].Value = reader[9].ToString();
+                table_policy["date", table_policy.Rows.Count - 1].Value = reader[10].ToString();
+                table_policy["status", table_policy.Rows.Count - 1].Value = reader[11].ToString();
             }
             reader.Close();
             connection.Close();
@@ -198,7 +204,10 @@ namespace Индивидуальное_задание_2.База_данных
             MySqlConnection connection = Program.Conn();
             connection.Open();
 
-            string comStr = "SELECT * FROM customers";
+            string comStr = "SELECT a.surname, a.name, a.middle_name, a.sex, a.date, p.series, p.number, a.job_place, ad.city, ad.street, ad.number, a.phone_number " +
+                "FROM `customers` a " +
+                "LEFT OUTER JOIN `passport` p ON p.id_passport = a.id_passport " +
+                "LEFT OUTER JOIN `address` ad ON ad.id_address = a.id_address";
             MySqlCommand com = new MySqlCommand(comStr, connection);
             MySqlDataReader reader = com.ExecuteReader();
 
@@ -210,10 +219,13 @@ namespace Индивидуальное_задание_2.База_данных
                 table_customer["middle_name", table_customer.Rows.Count - 1].Value = reader[2].ToString();
                 table_customer["sex", table_customer.Rows.Count - 1].Value = reader[3].ToString();
                 table_customer["dateC", table_customer.Rows.Count - 1].Value = reader[4].ToString();
-                table_customer["passport", table_customer.Rows.Count - 1].Value = reader[5].ToString();
-                table_customer["jobPlace", table_customer.Rows.Count - 1].Value = reader[6].ToString();
-                table_customer["address", table_customer.Rows.Count - 1].Value = reader[7].ToString();
-                table_customer["phoneNumber", table_customer.Rows.Count - 1].Value = reader[8].ToString();
+                table_customer["seriesC", table_customer.Rows.Count - 1].Value = reader[5].ToString();
+                table_customer["numberC", table_customer.Rows.Count - 1].Value = reader[6].ToString();
+                table_customer["jobPlace", table_customer.Rows.Count - 1].Value = reader[7].ToString();
+                table_customer["cityC", table_customer.Rows.Count - 1].Value = reader[8].ToString();
+                table_customer["streetC", table_customer.Rows.Count - 1].Value = reader[9].ToString();
+                table_customer["numberCu", table_customer.Rows.Count - 1].Value = reader[10].ToString();
+                table_customer["phoneNumber", table_customer.Rows.Count - 1].Value = reader[11].ToString();
             }
             reader.Close();
             connection.Close();
@@ -224,7 +236,10 @@ namespace Индивидуальное_задание_2.База_данных
             MySqlConnection connection = Program.Conn();
             connection.Open();
 
-            string comStr = "SELECT * FROM agents";
+            string comStr = "SELECT a.surname, a.name, a.middle_name, a.sex, a.date, p.series, p.number, a.phone_number, ad.city, ad.street, ad.number " +
+                "FROM `agents` a " +
+                "LEFT OUTER JOIN `passport` p ON p.id_passport = a.passport " +
+                "LEFT OUTER JOIN `address` ad ON ad.id_address = a.id_address";
             MySqlCommand com = new MySqlCommand(comStr, connection);
             MySqlDataReader reader = com.ExecuteReader();
 
@@ -236,9 +251,12 @@ namespace Индивидуальное_задание_2.База_данных
                 table_agents["middle_nameA", table_agents.Rows.Count - 1].Value = reader[2].ToString();
                 table_agents["sexA", table_agents.Rows.Count - 1].Value = reader[3].ToString();
                 table_agents["dateA", table_agents.Rows.Count - 1].Value = reader[4].ToString();
-                table_agents["passportA", table_agents.Rows.Count - 1].Value = reader[5].ToString();
-                table_agents["phone_number", table_agents.Rows.Count - 1].Value = reader[6].ToString();
-                table_agents["id_address", table_agents.Rows.Count - 1].Value = reader[7].ToString();
+                table_agents["seriesP", table_agents.Rows.Count - 1].Value = reader[5].ToString();
+                table_agents["numberP", table_agents.Rows.Count - 1].Value = reader[6].ToString();
+                table_agents["phone_number", table_agents.Rows.Count - 1].Value = reader[7].ToString();
+                table_agents["cityAd", table_agents.Rows.Count - 1].Value = reader[8].ToString();
+                table_agents["streetAd", table_agents.Rows.Count - 1].Value = reader[9].ToString();
+                table_agents["numberAd", table_agents.Rows.Count - 1].Value = reader[10].ToString();
             }
             reader.Close();
             connection.Close();
@@ -333,7 +351,7 @@ namespace Индивидуальное_задание_2.База_данных
                         command.ExecuteNonQuery();
 
                         connection.Close();
-
+                        check = true;
                         numPolicy1.Clear();
                     }
                 }
@@ -363,47 +381,47 @@ namespace Индивидуальное_задание_2.База_данных
                         {
                             case 0:
                                 {
-                                    com = "UPDATE insurance_policy SET surname = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
+                                    com = "UPDATE insurance_policy SET customer = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
                                     table_policy["customer", i].Value = valuePolicy.Text; break;
                                 }
                             case 1:
                                 {
-                                    com = "UPDATE insurance_policy SET name = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
+                                    com = "UPDATE insurance_policy SET insurance_event = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
                                     table_policy["insEvent", i].Value = valuePolicy.Text; break;
                                 }
                             case 2:
                                 {
-                                    com = "UPDATE insurance_policy SET middle_name = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
+                                    com = "UPDATE insurance_policy SET begin = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
                                     table_policy["begin", i].Value = valuePolicy.Text; break;
                                 }
                             case 3:
                                 {
-                                    com = "UPDATE insurance_policy SET sex = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
+                                    com = "UPDATE insurance_policy SET end = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
                                     table_policy["end", i].Value = valuePolicy.Text; break;
                                 }
                             case 4:
                                 {
-                                    com = "UPDATE insurance_policy SET date = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
+                                    com = "UPDATE insurance_policy SET agent = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
                                     table_policy["agent", i].Value = valuePolicy.Text; break;
                                 }
                             case 5:
                                 {
-                                    com = "UPDATE insurance_policy SET passport = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
+                                    com = "UPDATE insurance_policy SET amount = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
                                     table_policy["amount", i].Value = valuePolicy.Text; break;
                                 }
                             case 6:
                                 {
-                                    com = "UPDATE insurance_policy SET phone_number = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
+                                    com = "UPDATE insurance_policy SET payments = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
                                     table_policy["payments", i].Value = valuePolicy.Text; break;
                                 }
                             case 7:
                                 {
-                                    com = "UPDATE insurance_policy SET id_address = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
+                                    com = "UPDATE insurance_policy SET status = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
                                     table_policy["status", i].Value = valuePolicy.Text; break;
                                 }
                             case 8:
                                 {
-                                    com = "UPDATE insurance_policy SET id_address = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
+                                    com = "UPDATE insurance_policy SET date = '" + valuePolicy.Text + "' WHERE number = '" + numPolicy2.Text + "'";
                                     table_policy["data", i].Value = valuePolicy.Text; break;
                                 }
                         }
