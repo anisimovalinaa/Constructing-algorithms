@@ -1177,8 +1177,8 @@ namespace Индивидуальное_задание_2.База_данных
                     }
                 }
                 if (!check) MessageBox.Show("Таких данных нет!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                s1.Clear();
-                n1.Clear();
+                s2.Clear();
+                n2.Clear();
             }
         }
     }
