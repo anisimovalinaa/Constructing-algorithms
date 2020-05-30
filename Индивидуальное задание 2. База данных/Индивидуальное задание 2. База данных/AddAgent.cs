@@ -155,7 +155,22 @@ namespace Индивидуальное_задание_2.База_данных
                 MySqlCommand com = new MySqlCommand(comStr, connection);
                 com.ExecuteNonQuery();
 
-                string comStr2 = "SELECT * FROM agents";
+                string com6 = "SELECT* FROM passport WHERE (series = " + series.Text + " AND number = " + number.Text + ")";
+                MySqlCommand command2 = new MySqlCommand(com6, connection);
+                MySqlDataReader reader3 = command2.ExecuteReader();
+                string id_passport = "";
+                while (reader3.Read())
+                {
+                    id_passport = reader3[0].ToString();
+                }
+                reader3.Close();
+
+
+                string comStr2 = "SELECT a.surname, a.name, a.middle_name, a.sex, a.date, p.series, p.number, a.phone_number, ad.city, ad.street, ad.number " +
+                "FROM `agents` a " +
+                "LEFT OUTER JOIN `passport` p ON p.id_passport = a.passport " +
+                "LEFT OUTER JOIN `address` ad ON ad.id_address = a.id_address " +
+                "WHERE a.passport = " + id_passport;
                 MySqlCommand com2 = new MySqlCommand(comStr2, connection);
                 MySqlDataReader reader = com2.ExecuteReader();
 
@@ -166,9 +181,12 @@ namespace Индивидуальное_задание_2.База_данных
                     table["middle_nameA", table.Rows.Count - 1].Value = reader[2].ToString();
                     table["sexA", table.Rows.Count - 1].Value = reader[3].ToString();
                     table["dateA", table.Rows.Count - 1].Value = reader[4].ToString();
-                    table["passportA", table.Rows.Count - 1].Value = reader[5].ToString();
-                    table["phone_number", table.Rows.Count - 1].Value = reader[6].ToString();
-                    table["id_address", table.Rows.Count - 1].Value = reader[7].ToString();
+                    table["seriesP", table.Rows.Count - 1].Value = reader[5].ToString();
+                    table["numberP", table.Rows.Count - 1].Value = reader[6].ToString();
+                    table["phone_number", table.Rows.Count - 1].Value = reader[7].ToString();
+                    table["cityAd", table.Rows.Count - 1].Value = reader[8].ToString();
+                    table["streetAd", table.Rows.Count - 1].Value = reader[9].ToString();
+                    table["numberAd", table.Rows.Count - 1].Value = reader[10].ToString();
                 }
 
                 reader.Close();

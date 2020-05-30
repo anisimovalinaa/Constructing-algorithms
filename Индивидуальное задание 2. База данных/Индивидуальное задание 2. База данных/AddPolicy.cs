@@ -58,21 +58,38 @@ namespace Индивидуальное_задание_2.База_данных
                 MySqlDataReader reader = com2.ExecuteReader();
 
                 table.Rows.Add();
-
+                string id = "";
                 while (reader.Read())
                 {
-                    table["number", table.Rows.Count - 1].Value = reader[0].ToString();
-                    table["customer", table.Rows.Count - 1].Value = reader[1].ToString();
-                    table["insEvent", table.Rows.Count - 1].Value = reader[2].ToString();
-                    table["begin", table.Rows.Count - 1].Value = reader[3].ToString();
-                    table["end", table.Rows.Count - 1].Value = reader[4].ToString();
-                    table["agent", table.Rows.Count - 1].Value = reader[5].ToString();
-                    table["amount", table.Rows.Count - 1].Value = reader[6].ToString();
-                    table["payments", table.Rows.Count - 1].Value = reader[7].ToString();
-                    table["date", table.Rows.Count - 1].Value = reader[8].ToString();
-                    table["status", table.Rows.Count - 1].Value = reader[9].ToString();
+                    id = reader[0].ToString();
                 }
                 reader.Close();
+
+                string comStr1 = "SELECT a.number, b.series, b.number, e.name, a.begin, a.end, p.series, p.number, a.amount, a.payments, a.date, a.status " +
+                    "FROM `insurance_policy` a " +
+                    "LEFT OUTER JOIN `passport` b ON b.id_passport = a.customer " +
+                    "LEFT OUTER JOIN `passport` p ON p.id_passport = a.agent " +
+                    "LEFT OUTER JOIN `insurance_event` e ON e.id_event = a.insurance_event " +
+                    "WHERE a.number = " + id;
+                MySqlCommand com1 = new MySqlCommand(comStr1, connection);
+                MySqlDataReader reader1 = com1.ExecuteReader();
+
+                while (reader1.Read())
+                {
+                    table["number", table.Rows.Count - 1].Value = reader1[0].ToString();
+                    table["series1", table.Rows.Count - 1].Value = reader1[1].ToString();
+                    table["number11", table.Rows.Count - 1].Value = reader1[2].ToString();
+                    table["insEvent", table.Rows.Count - 1].Value = reader1[3].ToString();
+                    table["begin", table.Rows.Count - 1].Value = reader1[4].ToString();
+                    table["end", table.Rows.Count - 1].Value = reader1[5].ToString();
+                    table["series2", table.Rows.Count - 1].Value = reader1[6].ToString();
+                    table["number22", table.Rows.Count - 1].Value = reader1[7].ToString();
+                    table["amount", table.Rows.Count - 1].Value = reader1[8].ToString();
+                    table["payments", table.Rows.Count - 1].Value = reader1[9].ToString();
+                    table["date", table.Rows.Count - 1].Value = reader1[10].ToString();
+                    table["status", table.Rows.Count - 1].Value = reader1[11].ToString();
+                }
+                reader1.Close();
                 connection.Close();
                 customer.Clear();
                 insEvent.Clear();

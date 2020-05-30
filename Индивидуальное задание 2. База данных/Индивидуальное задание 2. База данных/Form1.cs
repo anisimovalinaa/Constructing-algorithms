@@ -181,7 +181,6 @@ namespace Индивидуальное_задание_2.База_данных
             while (reader.Read())
             {
                 table.Rows.Add();
-                table["id1", table.Rows.Count - 1].Value = reader[0].ToString();
                 table["name2", table.Rows.Count - 1].Value = reader[1].ToString();
             }
             reader.Close();
@@ -343,8 +342,6 @@ namespace Индивидуальное_задание_2.База_данных
             while (reader.Read())
             {
                 table_event.Rows.Add();
-                table_event["id_type", table_event.Rows.Count - 1].Value = reader[0].ToString();
-                table_event["id_event", table_event.Rows.Count - 1].Value = reader[1].ToString();
                 table_event["name1", table_event.Rows.Count - 1].Value = reader[2].ToString();
             }
             reader.Close();
@@ -713,7 +710,7 @@ namespace Индивидуальное_задание_2.База_данных
                         MySqlConnection connection = Program.Conn();
                         connection.Open();
 
-                        string com2 = "SELECT FROM passport WHERE (seies = " + numAgent2.Text + " AND number = " + numA.Text + ")";
+                        string com2 = "SELECT* FROM passport WHERE (series = " + numAgent2.Text + " AND number = " + numA.Text + ")";
                         MySqlCommand command2 = new MySqlCommand(com2, connection);
                         MySqlDataReader reader = command2.ExecuteReader();
                         string id_passport = "";
@@ -1077,7 +1074,7 @@ namespace Индивидуальное_задание_2.База_данных
                         MySqlConnection connection = Program.Conn();
                         connection.Open();
 
-                        string com2 = "SELECT FROM passport WHERE (seies = " + s1.Text + " AND number = " + n2.Text + ")";
+                        string com2 = "SELECT* FROM passport WHERE (series = " + s1.Text + " AND number = " + n1.Text + ")";
                         MySqlCommand command2 = new MySqlCommand(com2, connection);
                         MySqlDataReader reader = command2.ExecuteReader();
                         string id_passport = "";
@@ -1132,13 +1129,13 @@ namespace Индивидуальное_задание_2.База_данных
                 bool check = new bool();
                 for (int i = 0; i < table_policy.Rows.Count; i++)
                 {
-                    if ((table_policy["series2", i].Value.ToString() == s1.Text) && (table_policy["number22", i].Value.ToString() == n1.Text) && !check)
+                    if ((table_policy["series2", i].Value.ToString() == s2.Text) && (table_policy["number22", i].Value.ToString() == n2.Text) && !check)
                     {
                         table_policy.Rows.Clear();
                         MySqlConnection connection = Program.Conn();
                         connection.Open();
 
-                        string com2 = "SELECT FROM passport WHERE (seies = " + s2.Text + " AND number = " + n2.Text + ")";
+                        string com2 = "SELECT* FROM passport WHERE (series = " + s2.Text + " AND number = " + n2.Text + ")";
                         MySqlCommand command2 = new MySqlCommand(com2, connection);
                         MySqlDataReader reader = command2.ExecuteReader();
                         string id_passport = "";

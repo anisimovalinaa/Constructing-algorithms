@@ -161,7 +161,23 @@ namespace Индивидуальное_задание_2.База_данных
                 MySqlCommand com = new MySqlCommand(comStr, connection);
                 com.ExecuteNonQuery();
 
-                string comStr2 = "SELECT * FROM customers";
+                string com6 = "SELECT* FROM passport WHERE (series = " + series.Text + " AND number = " + number.Text + ")";
+                MySqlCommand command2 = new MySqlCommand(com6, connection);
+                MySqlDataReader reader3 = command2.ExecuteReader();
+                string id_passport = "";
+                while (reader3.Read())
+                {
+                    id_passport = reader3[0].ToString();
+                }
+                reader3.Close();
+
+
+                string comStr2 = "SELECT a.surname, a.name, a.middle_name, a.sex, a.date, p.series, p.number, a.job_place, ad.city, ad.street, ad.number, a.phone_number " +
+                    "FROM `customers` a " +
+                    "LEFT OUTER JOIN `passport` p ON p.id_passport = a.id_passport " +
+                    "LEFT OUTER JOIN `address` ad ON ad.id_address = a.id_address " + 
+                    "WHERE a.id_passport = " + id_passport;
+
                 MySqlCommand com2 = new MySqlCommand(comStr2, connection);
                 MySqlDataReader reader = com2.ExecuteReader();
 
@@ -172,10 +188,13 @@ namespace Индивидуальное_задание_2.База_данных
                     table["middle_name", table.Rows.Count - 1].Value = reader[2].ToString();
                     table["sex", table.Rows.Count - 1].Value = reader[3].ToString();
                     table["dateC", table.Rows.Count - 1].Value = reader[4].ToString();
-                    table["passport", table.Rows.Count - 1].Value = reader[5].ToString();
-                    table["jobPlace", table.Rows.Count - 1].Value = reader[6].ToString();
-                    table["address", table.Rows.Count - 1].Value = reader[7].ToString();
-                    table["phoneNumber", table.Rows.Count - 1].Value = reader[8].ToString();
+                    table["seriesC", table.Rows.Count - 1].Value = reader[5].ToString();
+                    table["numberC", table.Rows.Count - 1].Value = reader[6].ToString();
+                    table["jobPlace", table.Rows.Count - 1].Value = reader[7].ToString();
+                    table["cityC", table.Rows.Count - 1].Value = reader[8].ToString();
+                    table["streetC", table.Rows.Count - 1].Value = reader[9].ToString();
+                    table["numberCu", table.Rows.Count - 1].Value = reader[10].ToString();
+                    table["phoneNumber", table.Rows.Count - 1].Value = reader[11].ToString();
                 }
 
                 reader.Close();

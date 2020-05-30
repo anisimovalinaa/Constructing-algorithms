@@ -151,13 +151,8 @@
             this.deleteEvent = new System.Windows.Forms.Button();
             this.addEvent = new System.Windows.Forms.Button();
             this.table_event = new System.Windows.Forms.DataGridView();
-            this.id_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_event = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.table = new System.Windows.Forms.DataGridView();
-            this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.show = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -190,6 +185,8 @@
             this.cityAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.streetAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.policy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.table_policy)).BeginInit();
@@ -1429,36 +1426,13 @@
             this.table_event.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.table_event.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.table_event.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id_type,
-            this.id_event,
             this.name1});
             this.table_event.Location = new System.Drawing.Point(3, 3);
             this.table_event.Name = "table_event";
             this.table_event.ReadOnly = true;
             this.table_event.RowHeadersVisible = false;
-            this.table_event.Size = new System.Drawing.Size(470, 506);
+            this.table_event.Size = new System.Drawing.Size(315, 506);
             this.table_event.TabIndex = 14;
-            // 
-            // id_type
-            // 
-            this.id_type.HeaderText = "ID типа страхования";
-            this.id_type.Name = "id_type";
-            this.id_type.ReadOnly = true;
-            this.id_type.Width = 80;
-            // 
-            // id_event
-            // 
-            this.id_event.HeaderText = "ID страхового события";
-            this.id_event.Name = "id_event";
-            this.id_event.ReadOnly = true;
-            this.id_event.Width = 75;
-            // 
-            // name1
-            // 
-            this.name1.HeaderText = "Наименование";
-            this.name1.Name = "name1";
-            this.name1.ReadOnly = true;
-            this.name1.Width = 310;
             // 
             // tabPage6
             // 
@@ -1481,29 +1455,14 @@
             this.table.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id1,
             this.name2});
             this.table.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.table.Location = new System.Drawing.Point(0, 0);
             this.table.Name = "table";
             this.table.ReadOnly = true;
             this.table.RowHeadersVisible = false;
-            this.table.Size = new System.Drawing.Size(262, 111);
+            this.table.Size = new System.Drawing.Size(205, 111);
             this.table.TabIndex = 1;
-            // 
-            // id1
-            // 
-            this.id1.HeaderText = "ID вида";
-            this.id1.Name = "id1";
-            this.id1.ReadOnly = true;
-            this.id1.Width = 60;
-            // 
-            // name2
-            // 
-            this.name2.HeaderText = "Наименование";
-            this.name2.Name = "name2";
-            this.name2.ReadOnly = true;
-            this.name2.Width = 200;
             // 
             // show
             // 
@@ -1759,6 +1718,20 @@
             this.numberAd.Name = "numberAd";
             this.numberAd.ReadOnly = true;
             // 
+            // name1
+            // 
+            this.name1.HeaderText = "Наименование";
+            this.name1.Name = "name1";
+            this.name1.ReadOnly = true;
+            this.name1.Width = 310;
+            // 
+            // name2
+            // 
+            this.name2.HeaderText = "Наименование";
+            this.name2.Name = "name2";
+            this.name2.ReadOnly = true;
+            this.name2.Width = 200;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1892,13 +1865,8 @@
         private System.Windows.Forms.Button deleteEvent;
         private System.Windows.Forms.Button addEvent;
         private System.Windows.Forms.DataGridView table_event;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_event;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name1;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.DataGridView table;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name2;
         private System.Windows.Forms.DataGridViewTextBoxColumn surname;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn middle_name;
@@ -1955,6 +1923,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cityAd;
         private System.Windows.Forms.DataGridViewTextBoxColumn streetAd;
         private System.Windows.Forms.DataGridViewTextBoxColumn numberAd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name2;
     }
 }
 
