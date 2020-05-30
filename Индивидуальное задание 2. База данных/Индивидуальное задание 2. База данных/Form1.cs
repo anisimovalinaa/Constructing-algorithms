@@ -52,10 +52,23 @@ namespace Индивидуальное_задание_2.База_данных
             label3.Font = new Font("Times New Roman", 10, label3.Font.Style);
             label4.Font = new Font("Times New Roman", 10, label4.Font.Style);
             label5.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            label31.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            label32.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            label33.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            label34.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            label35.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            label36.Font = new Font("Times New Roman", 10, label5.Font.Style);
             numPolicy1.Font = new Font("Times New Roman", 10, numPolicy1.Font.Style);
             numPolicy2.Font = new Font("Times New Roman", 10, numPolicy2.Font.Style);
             valuePolicy.Font = new Font("Times New Roman", 10, valuePolicy.Font.Style);
             boxPolicy.Font = new Font("Times New Roman", 10, boxPolicy.Font.Style);
+            s1.Font = new Font("Times New Roman", 10, boxPolicy.Font.Style);
+            s2.Font = new Font("Times New Roman", 10, boxPolicy.Font.Style);
+            n1.Font = new Font("Times New Roman", 10, boxPolicy.Font.Style);
+            n2.Font = new Font("Times New Roman", 10, boxPolicy.Font.Style);
+            Show1.Font = new Font("Times New Roman", 10, boxPolicy.Font.Style);
+            Show2.Font = new Font("Times New Roman", 10, boxPolicy.Font.Style);
+            show.Font = new Font("Times New Roman", 10, addPolicy.Font.Style);
         }
 
         private void InitializeCustomer()
@@ -70,6 +83,10 @@ namespace Индивидуальное_задание_2.База_данных
             label8.Font = new Font("Times New Roman", 10, label3.Font.Style);
             label9.Font = new Font("Times New Roman", 10, label4.Font.Style);
             label10.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            label38.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            label37.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            numCu.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            numCu2.Font = new Font("Times New Roman", 10, label5.Font.Style);
             numClient1.Font = new Font("Times New Roman", 10, numClient1.Font.Style);
             numClient2.Font = new Font("Times New Roman", 10, numClient2.Font.Style);
             valueClient.Font = new Font("Times New Roman", 10, valueClient.Font.Style);
@@ -88,6 +105,10 @@ namespace Индивидуальное_задание_2.База_данных
             label13.Font = new Font("Times New Roman", 10, label3.Font.Style);
             label14.Font = new Font("Times New Roman", 10, label4.Font.Style);
             label15.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            label39.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            label39.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            label40.Font = new Font("Times New Roman", 10, label5.Font.Style);
+            numA1.Font = new Font("Times New Roman", 10, label5.Font.Style);
             numAgent1.Font = new Font("Times New Roman", 10, numAgent1.Font.Style);
             numAgent2.Font = new Font("Times New Roman", 10, numAgent2.Font.Style);
             valueAgent.Font = new Font("Times New Roman", 10, valueAgent.Font.Style);
@@ -455,22 +476,33 @@ namespace Индивидуальное_задание_2.База_данных
 
         private void deleteClient_Click(object sender, EventArgs e)
         {
-            if (numClient1.Text == "") MessageBox.Show("Введите ID паспорта!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (numClient1.Text == "" || numCu.Text == "") MessageBox.Show("Введите данные!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 bool check = new bool();
                 for (int i = 0; i < table_customer.Rows.Count; i++)
                 {
-                    if ((table_customer["passport", i].Value.ToString() == numClient1.Text) && !check)
+                    if ((table_customer["seriesC", i].Value.ToString() == numClient1.Text) && (table_customer["numberC", i].Value.ToString() == numCu.Text) && !check)
                     {
-                        string id_passport = table_customer["passport", i].Value.ToString();
-                        string id_address = table_customer["address", i].Value.ToString();
+                        string city = table_customer["cityC", i].Value.ToString();
+                        string street = table_customer["streetC", i].Value.ToString();
+                        string numberA = table_customer["numberCu", i].Value.ToString();
                         table_customer.Rows.RemoveAt(i);
-                        string com = "DELETE FROM customers WHERE id_passport = '" + numClient1.Text + "'";
 
                         MySqlConnection connection = Program.Conn();
                         connection.Open();
 
+                        string com2 = "SELECT FROM passport WHERE (seies = " + numClient1.Text + " AND number = " + numCu.Text + ")";
+                        MySqlCommand command2 = new MySqlCommand(com2, connection);
+                        MySqlDataReader reader = command2.ExecuteReader();
+                        string id_passport = "";
+                        while(reader.Read())
+                        {
+                            id_passport = reader[0].ToString();
+                        }
+                        reader.Close();
+
+                        string com = "DELETE FROM customer WHERE id_passport = '" + id_passport + "'";
                         MySqlCommand command = new MySqlCommand(com, connection);
                         command.ExecuteNonQuery();
 
@@ -487,10 +519,12 @@ namespace Индивидуальное_задание_2.База_данных
                         }
                         for (int j = 0; j < tableAddress.Rows.Count; j++)
                         {
-                            if (tableAddress["id", j].Value.ToString() == id_address)
+                            if ((tableAddress["city", j].Value.ToString() == city) && (tableAddress["street", j].Value.ToString() == street) &&
+                                (tableAddress["number2", j].Value.ToString() == numberA))
                             {
+                                string id_address = tableAddress["id", j].Value.ToString();
                                 tableAddress.Rows.RemoveAt(j);
-                                string com1 = "DELETE FROM passport WHERE id_passport = '" + id_address + "'";
+                                string com1 = "DELETE FROM address WHERE id_passport = '" + id_address + "'";
 
                                 MySqlCommand command1 = new MySqlCommand(com1, connection);
                                 command1.ExecuteNonQuery();
@@ -498,20 +532,19 @@ namespace Индивидуальное_задание_2.База_данных
                         }
 
                         connection.Close();
-
-                        numClient1.Clear();
                         check = true;
                     }
                 }
 
-                if (!check) MessageBox.Show("Такого ID нет!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!check) MessageBox.Show("Таких данных нет!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 numClient1.Clear();
             }
         }
 
         private void updateClient_Click(object sender, EventArgs e)
         {
-            if (numClient2.Text == "") MessageBox.Show("Введите ID паспорта!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (numClient2.Text == "") MessageBox.Show("Введите серию паспорта!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (numCu2.Text == "") MessageBox.Show("Введите номер паспорта!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (valueClient.Text == "") MessageBox.Show("Введите значение!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (boxClient.Text == "") MessageBox.Show("Поле не выбрано!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
@@ -519,10 +552,20 @@ namespace Индивидуальное_задание_2.База_данных
                 bool check = new bool();
 
                 for (int i = 0; i < table_customer.Rows.Count; i++)
-                    if ((table_customer["passport", i].Value.ToString() == numClient2.Text) && !check)
+                    if ((table_customer["seriesC", i].Value.ToString() == numClient2.Text) && (table_customer["numberC", i].Value.ToString() == numCu2.Text) && !check)
                     {
                         MySqlConnection connection = Program.Conn();
                         connection.Open();
+
+                        string com2 = "SELECT FROM passport WHERE (seies = " + numClient2.Text + " AND number = " + numCu.Text + ")";
+                        MySqlCommand command2 = new MySqlCommand(com2, connection);
+                        MySqlDataReader reader = command2.ExecuteReader();
+                        string id_passport = "";
+                        while (reader.Read())
+                        {
+                            id_passport = reader[0].ToString();
+                        }
+                        reader.Close();
 
                         string com = "";
 
@@ -530,37 +573,37 @@ namespace Индивидуальное_задание_2.База_данных
                         {
                             case 0:
                                 {
-                                    com = "UPDATE customers SET surname = '" + valueClient.Text + "' WHERE id_passport = '" + numClient2.Text + "'";
+                                    com = "UPDATE customers SET surname = '" + valueClient.Text + "' WHERE id_passport = '" + id_passport + "'";
                                     table_customer["surname", i].Value = valueClient.Text; break;
                                 }
                             case 1:
                                 {
-                                    com = "UPDATE customers SET name = '" + valueClient.Text + "' WHERE id_passport = '" + numClient2.Text + "'";
+                                    com = "UPDATE customers SET name = '" + valueClient.Text + "' WHERE id_passport = '" + id_passport + "'";
                                     table_customer["name", i].Value = valueClient.Text; break;
                                 }
                             case 2:
                                 {
-                                    com = "UPDATE customers SET middle_name = '" + valueClient.Text + "' WHERE id_passport = '" + numClient2.Text + "'";
+                                    com = "UPDATE customers SET middle_name = '" + valueClient.Text + "' WHERE id_passport = '" + id_passport + "'";
                                     table_customer["middle_name", i].Value = valueClient.Text; break;
                                 }
                             case 3:
                                 {
-                                    com = "UPDATE customers SET sex = '" + valueClient.Text + "' WHERE id_passport = '" + numClient2.Text + "'";
+                                    com = "UPDATE customers SET sex = '" + valueClient.Text + "' WHERE id_passport = '" + id_passport + "'";
                                     table_customer["sex", i].Value = valueClient.Text; break;
                                 }
                             case 4:
                                 {
-                                    com = "UPDATE customers SET date = '" + valueClient.Text + "' WHERE id_passport = '" + numClient2.Text + "'";
+                                    com = "UPDATE customers SET date = '" + valueClient.Text + "' WHERE id_passport = '" + id_passport + "'";
                                     table_customer["dateC", i].Value = valueClient.Text; break;
                                 }
                             case 5:
                                 {
-                                    com = "UPDATE customers SET job_place = '" + valueClient.Text + "' WHERE id_passport = '" + numClient2.Text + "'";
+                                    com = "UPDATE customers SET job_place = '" + valueClient.Text + "' WHERE id_passport = '" + id_passport + "'";
                                     table_customer["jobPlace", i].Value = valueClient.Text; break;
                                 }
                             case 6:
                                 {
-                                    com = "UPDATE customers SET phone_number = '" + valueClient.Text + "' WHERE id_passport = '" + numClient2.Text + "'";
+                                    com = "UPDATE customers SET phone_number = '" + valueClient.Text + "' WHERE id_passport = '" + id_passport + "'";
                                     table_customer["phoneNumber", i].Value = valueClient.Text; break;
                                 }
                         }
@@ -572,8 +615,9 @@ namespace Индивидуальное_задание_2.База_данных
                         check = true;
                     }
 
-                if (!check) MessageBox.Show("Такого ID нет!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!check) MessageBox.Show("Таких данных нет!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                numCu2.Clear();
                 numClient2.Clear();
                 valueClient.Clear();
             }
@@ -589,22 +633,33 @@ namespace Индивидуальное_задание_2.База_данных
 
         private void deleteAgent_Click(object sender, EventArgs e)
         {
-            if (numAgent1.Text == "") MessageBox.Show("Введите ID паспорта!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (numAgent1.Text == "" || numA1.Text == "") MessageBox.Show("Введите данные!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 bool check = new bool();
                 for (int i = 0; i < table_agents.Rows.Count; i++)
                 {
-                    if ((table_agents["passportA", i].Value.ToString() == numAgent1.Text) && !check)
+                    if ((table_agents["seriesP", i].Value.ToString() == numAgent1.Text) && (table_agents["numberP", i].Value.ToString() == numA1.Text) && !check)
                     {
-                        string id_passport = table_agents["passportA", i].Value.ToString();
-                        string id_address = table_agents["id_address", i].Value.ToString();
+                        string city = table_agents["cityAd", i].Value.ToString();
+                        string street = table_agents["streetAd", i].Value.ToString();
+                        string numberA = table_agents["numberAd", i].Value.ToString();
                         table_agents.Rows.RemoveAt(i);
-                        string com = "DELETE FROM agents WHERE passport = '" + numAgent1.Text + "'";
 
                         MySqlConnection connection = Program.Conn();
                         connection.Open();
 
+                        string com2 = "SELECT FROM passport WHERE (seies = " + numAgent1.Text + " AND number = " + numA1.Text + ")";
+                        MySqlCommand command2 = new MySqlCommand(com2, connection);
+                        MySqlDataReader reader = command2.ExecuteReader();
+                        string id_passport = "";
+                        while (reader.Read())
+                        {
+                            id_passport = reader[0].ToString();
+                        }
+                        reader.Close();
+
+                        string com = "DELETE FROM agents WHERE passport = '" + id_passport + "'";
                         MySqlCommand command = new MySqlCommand(com, connection);
                         command.ExecuteNonQuery();
 
@@ -621,8 +676,10 @@ namespace Индивидуальное_задание_2.База_данных
                         }
                         for (int j = 0; j < tableAddress.Rows.Count; j++)
                         {
-                            if (tableAddress["id", j].Value.ToString() == id_address)
+                            if ((tableAddress["city", j].Value.ToString() == city) && (tableAddress["street", j].Value.ToString() == street) &&
+                                (tableAddress["number2", j].Value.ToString() == numberA))
                             {
+                                string id_address = tableAddress["id", j].Value.ToString();
                                 tableAddress.Rows.RemoveAt(j);
                                 string com1 = "DELETE FROM passport WHERE id_passport = '" + id_address + "'";
 
@@ -632,17 +689,18 @@ namespace Индивидуальное_задание_2.База_данных
                         }
                         connection.Close();
                         check = true;
-                        numAgent1.Clear();
                     }
                 }
-                if (!check) MessageBox.Show("Такого ID нет!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!check) MessageBox.Show("Таких данных нет!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 numAgent1.Clear();
+                numA1.Clear();
             }
         }
 
         private void updateAgent_Click(object sender, EventArgs e)
         {
-            if (numAgent2.Text == "") MessageBox.Show("Введите ID паспорта!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (numAgent2.Text == "") MessageBox.Show("Введите серию паспорта!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (numA.Text == "") MessageBox.Show("Введите номер паспорта!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (valueAgent.Text == "") MessageBox.Show("Введите значение!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (boxAgent.Text == "") MessageBox.Show("Поле не выбрано!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
@@ -650,10 +708,20 @@ namespace Индивидуальное_задание_2.База_данных
                 bool check = new bool();
 
                 for (int i = 0; i < table_agents.Rows.Count; i++)
-                    if ((table_agents["passportA", i].Value.ToString() == numAgent2.Text) && !check)
+                    if ((table_agents["seriesP", i].Value.ToString() == numAgent2.Text) && (table_agents["numberP", i].Value.ToString() == numA.Text) && !check)
                     {
                         MySqlConnection connection = Program.Conn();
                         connection.Open();
+
+                        string com2 = "SELECT FROM passport WHERE (seies = " + numAgent2.Text + " AND number = " + numA.Text + ")";
+                        MySqlCommand command2 = new MySqlCommand(com2, connection);
+                        MySqlDataReader reader = command2.ExecuteReader();
+                        string id_passport = "";
+                        while (reader.Read())
+                        {
+                            id_passport = reader[0].ToString();
+                        }
+                        reader.Close();
 
                         string com = "";
 
@@ -661,32 +729,32 @@ namespace Индивидуальное_задание_2.База_данных
                         {
                             case 0:
                                 {
-                                    com = "UPDATE agents SET surname = '" + valueAgent.Text + "' WHERE passport = '" + numAgent2.Text + "'";
+                                    com = "UPDATE agents SET surname = '" + valueAgent.Text + "' WHERE passport = '" + id_passport + "'";
                                     table_agents["surnameA", i].Value = valueAgent.Text; break;
                                 }
                             case 1:
                                 {
-                                    com = "UPDATE agents SET name = '" + valueAgent.Text + "' WHERE passport = '" + numAgent2.Text + "'";
+                                    com = "UPDATE agents SET name = '" + valueAgent.Text + "' WHERE passport = '" + id_passport + "'";
                                     table_agents["nameA", i].Value = valueAgent.Text; break;
                                 }
                             case 2:
                                 {
-                                    com = "UPDATE agents SET middle_name = '" + valueAgent.Text + "' WHERE passport = '" + numAgent2.Text + "'";
+                                    com = "UPDATE agents SET middle_name = '" + valueAgent.Text + "' WHERE passport = '" + id_passport + "'";
                                     table_agents["middle_nameA", i].Value = valueAgent.Text; break;
                                 }
                             case 3:
                                 {
-                                    com = "UPDATE agents SET sex = '" + valueAgent.Text + "' WHERE passport = '" + numAgent2.Text + "'";
+                                    com = "UPDATE agents SET sex = '" + valueAgent.Text + "' WHERE passport = '" + id_passport + "'";
                                     table_agents["sexA", i].Value = valueAgent.Text; break;
                                 }
                             case 4:
                                 {
-                                    com = "UPDATE agents SET date = '" + valueAgent.Text + "' WHERE passport = '" + numAgent2.Text + "'";
+                                    com = "UPDATE agents SET date = '" + valueAgent.Text + "' WHERE passport = '" + id_passport + "'";
                                     table_agents["dateA", i].Value = valueAgent.Text; break;
                                 }
                             case 5:
                                 {
-                                    com = "UPDATE agents SET phone_number = '" + valueAgent.Text + "' WHERE passport = '" + numAgent2.Text + "'";
+                                    com = "UPDATE agents SET phone_number = '" + valueAgent.Text + "' WHERE passport = '" + id_passport + "'";
                                     table_agents["phone_number", i].Value = valueAgent.Text; break;
                                 }
                         }
@@ -700,6 +768,7 @@ namespace Индивидуальное_задание_2.База_данных
 
                 if (!check) MessageBox.Show("Такого ID нет!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                numA.Clear();
                 numAgent2.Clear();
                 valueAgent.Clear();
             }
@@ -985,6 +1054,134 @@ namespace Индивидуальное_задание_2.База_данных
 
                 numEvent2.Clear();
                 valueEvent.Clear();
+            }
+        }
+
+        private void show_Click(object sender, EventArgs e)
+        {
+            table_policy.Rows.Clear();
+            ShowPolicy();
+        }
+
+        private void Show1_Click(object sender, EventArgs e)
+        {
+            if (s1.Text == "" || n1.Text == "") MessageBox.Show("Введите данные!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                bool check = new bool();
+                for (int i = 0; i < table_policy.Rows.Count; i++)
+                {
+                    if ((table_policy["series1", i].Value.ToString() == s1.Text) && (table_policy["number11", i].Value.ToString() == n1.Text) && !check)
+                    {
+                        table_policy.Rows.Clear();
+                        MySqlConnection connection = Program.Conn();
+                        connection.Open();
+
+                        string com2 = "SELECT FROM passport WHERE (seies = " + s1.Text + " AND number = " + n2.Text + ")";
+                        MySqlCommand command2 = new MySqlCommand(com2, connection);
+                        MySqlDataReader reader = command2.ExecuteReader();
+                        string id_passport = "";
+                        while (reader.Read())
+                        {
+                            id_passport = reader[0].ToString();
+                        }
+                        reader.Close();
+
+                        string comStr = "SELECT a.number, b.series, b.number, e.name, a.begin, a.end, p.series, p.number, a.amount, a.payments, a.date, a.status " +
+                                        "FROM `insurance_policy` a " +
+                                        "LEFT OUTER JOIN `passport` b ON b.id_passport = a.customer " +
+                                        "LEFT OUTER JOIN `passport` p ON p.id_passport = a.agent " +
+                                        "LEFT OUTER JOIN `insurance_event` e ON e.id_event = a.insurance_event " +
+                                        "WHERE a.customer = " + id_passport;
+
+                        MySqlCommand com = new MySqlCommand(comStr, connection);
+                        MySqlDataReader reader1 = com.ExecuteReader();
+
+                        while (reader1.Read())
+                        {
+                            table_policy.Rows.Add();
+                            table_policy["number", table_policy.Rows.Count - 1].Value = reader1[0].ToString();
+                            table_policy["series1", table_policy.Rows.Count - 1].Value = reader1[1].ToString();
+                            table_policy["number11", table_policy.Rows.Count - 1].Value = reader1[2].ToString();
+                            table_policy["insEvent", table_policy.Rows.Count - 1].Value = reader1[3].ToString();
+                            table_policy["begin", table_policy.Rows.Count - 1].Value = reader1[4].ToString();
+                            table_policy["end", table_policy.Rows.Count - 1].Value = reader1[5].ToString();
+                            table_policy["series2", table_policy.Rows.Count - 1].Value = reader1[6].ToString();
+                            table_policy["number22", table_policy.Rows.Count - 1].Value = reader1[7].ToString();
+                            table_policy["amount", table_policy.Rows.Count - 1].Value = reader1[8].ToString();
+                            table_policy["payments", table_policy.Rows.Count - 1].Value = reader1[9].ToString();
+                            table_policy["date", table_policy.Rows.Count - 1].Value = reader1[10].ToString();
+                            table_policy["status", table_policy.Rows.Count - 1].Value = reader1[11].ToString();
+                        }
+                        reader1.Close();
+                        connection.Close();
+                        check = true;
+                    }
+                }
+                if (!check) MessageBox.Show("Таких данных нет!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                s1.Clear();
+                n1.Clear();
+            }
+        }
+
+        private void Show2_Click(object sender, EventArgs e)
+        {
+            if (s2.Text == "" || n2.Text == "") MessageBox.Show("Введите данные!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                bool check = new bool();
+                for (int i = 0; i < table_policy.Rows.Count; i++)
+                {
+                    if ((table_policy["series2", i].Value.ToString() == s1.Text) && (table_policy["number22", i].Value.ToString() == n1.Text) && !check)
+                    {
+                        table_policy.Rows.Clear();
+                        MySqlConnection connection = Program.Conn();
+                        connection.Open();
+
+                        string com2 = "SELECT FROM passport WHERE (seies = " + s2.Text + " AND number = " + n2.Text + ")";
+                        MySqlCommand command2 = new MySqlCommand(com2, connection);
+                        MySqlDataReader reader = command2.ExecuteReader();
+                        string id_passport = "";
+                        while (reader.Read())
+                        {
+                            id_passport = reader[0].ToString();
+                        }
+                        reader.Close();
+
+                        string comStr = "SELECT a.number, b.series, b.number, e.name, a.begin, a.end, p.series, p.number, a.amount, a.payments, a.date, a.status " +
+                                        "FROM `insurance_policy` a " +
+                                        "LEFT OUTER JOIN `passport` b ON b.id_passport = a.customer " +
+                                        "LEFT OUTER JOIN `passport` p ON p.id_passport = a.agent " +
+                                        "LEFT OUTER JOIN `insurance_event` e ON e.id_event = a.insurance_event " +
+                                        "WHERE a.agent = " + id_passport;
+
+                        MySqlCommand com = new MySqlCommand(comStr, connection);
+                        MySqlDataReader reader1 = com.ExecuteReader();
+
+                        while (reader1.Read())
+                        {
+                            table_policy.Rows.Add();
+                            table_policy["number", table_policy.Rows.Count - 1].Value = reader1[0].ToString();
+                            table_policy["series1", table_policy.Rows.Count - 1].Value = reader1[1].ToString();
+                            table_policy["number11", table_policy.Rows.Count - 1].Value = reader1[2].ToString();
+                            table_policy["insEvent", table_policy.Rows.Count - 1].Value = reader1[3].ToString();
+                            table_policy["begin", table_policy.Rows.Count - 1].Value = reader1[4].ToString();
+                            table_policy["end", table_policy.Rows.Count - 1].Value = reader1[5].ToString();
+                            table_policy["series2", table_policy.Rows.Count - 1].Value = reader1[6].ToString();
+                            table_policy["number22", table_policy.Rows.Count - 1].Value = reader1[7].ToString();
+                            table_policy["amount", table_policy.Rows.Count - 1].Value = reader1[8].ToString();
+                            table_policy["payments", table_policy.Rows.Count - 1].Value = reader1[9].ToString();
+                            table_policy["date", table_policy.Rows.Count - 1].Value = reader1[10].ToString();
+                            table_policy["status", table_policy.Rows.Count - 1].Value = reader1[11].ToString();
+                        }
+                        reader1.Close();
+                        connection.Close();
+                        check = true;
+                    }
+                }
+                if (!check) MessageBox.Show("Таких данных нет!", "ОШИБКА", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                s1.Clear();
+                n1.Clear();
             }
         }
     }
